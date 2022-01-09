@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Inek Obası</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+
+    <script src="https://kit.fontawesome.com/e51de850ab.js" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+
+<style>
+
+    body {font-family: Arial, Helvetica, sans-serif;}
+    * {box-sizing: border-box}
+    .AtatürkSöz{
+        text-align: center;
+        background: #dd2118;
+        color: white;
+        font-size: 15px;
+        height: 50px;
+        width: auto;
+        padding: 0px;
+        box-shadow: 0 10px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    .AtatürkSöz_Text{
+        text-align: center;
+        vertical-align: sub;
+        color: white;
+        margin: 0 auto;
+        text-transform: capitalize;
+    }
+    .header {
+        text-align: center;
+        background: #dd2118;
+        color: white;
+        font-size: 20px;
+        height: 150px;
+        width: auto;
+        box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+    }
+    .HeaderImage {
+        width: 300px;
+        position:absolute;
+        top:40px;
+        left: 13%;
+    }
+    .center{
+        margin: 0 auto;
+    }
+    .vertical-center {
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    .btn-group{
+        position: relative;
+        top: 50px;  
+    }
+    .btn-group .buttonHeader {
+        background-color: #dd2118; 
+        border: 2px solid #aa1b13;
+        border-radius: 4px;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+    .buttonHeader:hover {
+        background-color: #aa1b13;
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    .buttonHeader:active {
+        background-color: #aa1b13;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+    .dropdown-content .Titlecontents{
+        color: white;
+        background-color: #dd2118;
+        border: 1px solid #aa1b13;
+        border-radius: 1px;
+    }
+    .Titlecontents:hover{
+        background-color: #aa1b13;
+    }
+    .Titlecontents:active{
+        background-color: #aa1b13;
+        box-shadow: 0 1px #666;
+        transform: translateY(-1px);
+    }
+    .Footer{
+        z-index: 1;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #dd2118;
+        color: white;
+        text-align: center;
+        display: inline-block;
+    }
+    .Footer .FooterLogo{
+        width: 50px;
+        position: relative;
+        bottom: 0px;
+        top: 0px;
+    }
+    .Footer .FooterTitle{
+        position:absolute;
+        left: 10px;
+        top: 40px;
+    }
+    .mySlides {
+        display:none;
+        width: 100%;
+        height: auto;
+        border: 2px solid black;
+
+    }
+    .w3-left, .w3-right, .w3-badge {cursor:pointer}
+    .w3-badge {height:13px;width:13px;padding:0}
+    .HeaderContainer{
+        width: 100%;
+        height: 100%;
+        background-color: aqua;
+    }
+    .SliderContainer{
+    }
+    .GündemContainer{
+        margin: auto;
+        width: 42%;
+        height: 800px;
+    }
+    .GündemText{
+        color: black;
+        position: relative;
+        font-size: 20px;
+    }
+    .GündemFotoContainer{
+        margin: auto;
+        width: 100%; 
+        height: 100%;
+    }
+    .GündemFoto{
+        display: inline-block;
+        width: 45%;
+        margin-left: 23px;
+        margin-right: 10px;
+        margin-top: 10px;
+        border: 1px solid black;
+    }
+    .TopFooterContainer{
+        display: inline-block;
+        background-color: rgb(78, 78, 78);
+        width: 100%;
+        height: 250px;
+    }
+
+    .TopFooterContainer .TopFooterLeft{
+        position: relative;
+        left: 600px;
+        bottom: 70px;
+        width: 305px;
+        height: auto;
+        text-align: center;
+
+    }
+
+    .TopFooterContainer .TopFooterRight{
+        position: relative;
+        left: 1000px;
+        top: 30px;
+        width: 300px;
+        height: auto;
+    }
+
+    .TopFooterContainer .TopFooterIcons{
+        position: relative;
+        left: 75px;
+        font-size:48px;
+        color:white;
+    }
+
+
+</style>
+
+<body style="height: 100%; width: 100%; margin: 0 auto;">
+    <div class="HeaderContainer">   
+        <div class="AtatürkSöz">
+            <p class="AtatürkSöz_Text">"Umutsuz Durumlar Yoktur, Umutsuz Insanlar Vardır. Ben Hiç Bir Zaman Umudumu Kaybetmedim!"</p>
+            <p class="AtatürkSöz_Text">-Mustafa Kemal ATATÜRK</p>
+        </div>
+        <div class="header">
+            <img class="HeaderImage" src="InekObasıHeader.png" >
+
+            <div class="btn-group">
+                <div class="dropdown">
+                    <button class="buttonHeader dropbtn">INEK OBASI</button>
+                        <div class="dropdown-content">
+                            <a href="#" class="Titlecontents">Link 1</a>
+                            <a href="#" class="Titlecontents">Link 2</a>
+                            <a href="#" class="Titlecontents">Link 3</a>
+                        </div>
+                </div>
+
+                <button class="buttonHeader">YEŞIL OBA</button>
+                <button class="buttonHeader">HABERLER</button>
+                <button class="buttonHeader">HAKKINDA</button>
+                <button class="buttonHeader">ILETIŞIM</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="Footer">
+            <img class="FooterLogo" src="InekObasiLogo.jpg"><img>
+    </div>
+
+    <div class="SliderContainer">
+        <div class="w3-content w3-section w3-display-container slider" style="width: 800px;">
+            <img class="mySlides w3-animate-right" src="sdfsdfsdf.jpg" >
+            <img class="mySlides w3-animate-right" src="Kazakistan.png">
+            <img class="mySlides w3-animate-right" src="ÜyeAranıyor.png" >
+            <img class="mySlides w3-animate-right" src="ÜyeAranıyorYeşilOba.png" >
+
+            <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+            <div class="w3-left w3-hover-text-khaki SliderButtons"  onclick="plusDivs(-1)">&#10094;</div>
+            <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+            <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
+        </div>  
+        <script>
+            var myIndex = 0;
+            carousel();
+
+            function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            myIndex++;
+            if (myIndex > x.length) {myIndex = 1}    
+            x[myIndex-1].style.display = "block";  
+            setTimeout(carousel, 5000);    
+            }
+        </script>
+        <script>
+            var slideIndex = 1;
+            showDivs(slideIndex);
+            
+            function plusDivs(n) {
+            showDivs(slideIndex += n);
+            }
+            
+            function currentDiv(n) {
+            showDivs(slideIndex = n);
+            }
+            
+            function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            if (n > x.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" w3-white", "");
+            }
+            x[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " w3-white";
+        }
+        </script>
+        </div>
+    </div>
+
+    <div class="GündemContainer">
+        <b class="GündemText">Gündem</b>
+        <div class="GündemFotoContainer">
+            <img src="Kazakistan.png" class="GündemFoto">
+            <img src="Kazakistan.png" class="GündemFoto">
+            <img src="Kazakistan.png" class="GündemFoto">
+            <img src="Kazakistan.png" class="GündemFoto">
+            <img src="Kazakistan.png" class="GündemFoto">
+            <img src="Kazakistan.png" class="GündemFoto">
+        </div>
+
+    </div>
+
+    <div class="TopFooterContainer">
+
+        <div class="TopFooterRight">
+            <i class="fab fa-twitter TopFooterIcons"></i>
+            <i class="fab fa-youtube TopFooterIcons"></i>
+            <i class="fab fa-instagram TopFooterIcons"></i>
+            <img src="KemalAtatürkImza.png" class="TopFooterLogo" style="filter: invert(100%); position: relative; width: 150px; left: 75px;">
+        </div>
+
+        <div class="TopFooterLeft">
+            <img src="InekObasıLogoName.jpg" class="TopFooterLogo" style="border: 1px solid #aa1b13; width: 150px;">
+            <img src="YeşilObasLogoName.png" class="TopFooterLogo" style="border: 1px solid #01580d; width: 150px;">
+            <p style="color: white;">©2021 copyright all rights reserved</p>
+        </div>
+        
+    </div>
+
+</body>
+
+</html>
