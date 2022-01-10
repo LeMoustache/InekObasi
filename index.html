@@ -22,12 +22,11 @@
         text-align: center;
         background: #dd2118;
         color: white;
-        font-size: 15px;
-        height: 50px;
+        font-size: 100%;
+        height: 50%;
         width: auto;
-        padding: 0px;
-        box-shadow: 0 10px 10px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
     }
+    
     .AtatürkSöz_Text{
         text-align: center;
         vertical-align: sub;
@@ -35,21 +34,28 @@
         margin: 0 auto;
         text-transform: capitalize;
     }
+
+    .AtatürkImza{
+        filter: invert(100%); 
+        position: relative; 
+        width: 5%;
+    }
+   
     .header {
         text-align: center;
         background: #dd2118;
         color: white;
         font-size: 20px;
-        height: 100px;
+        height: 10vh;
         width: auto;
         box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 
     }
     .HeaderImage {
-        width: 275px;
-        position:absolute;
-        top:2%;
-        left: 17%;
+        width: 13.8%;
+        position:relative;
+        float: left;
+        bottom: 27px;
     }
 
     .center{
@@ -200,7 +206,7 @@
         padding-bottom: 4px;
     }
     .TopFooterContainer{
-        display: inline-block;
+        display: block;
         background-color: rgb(78, 78, 78);
         width: 100%;
         height: 250px;
@@ -208,31 +214,23 @@
 
     .TopFooterContainer .TopFooterContainer2{
         position: relative;
+        text-align: center;
         top: 10%;
-        left: 32%;
-        width: 32%;
+        left: 42.2%;
+        width: 16%;
         height: 80%;
-    }
-
-    .TopFooterLeft{
-        position: relative;
-        float: left;
     }
 
     .TopFooterContainer .TopFooterIcons{
         position: relative;
         font-size: 325%;
         color:white;
-        float: right;
         padding:4px;
     }
 
+
     
-    .TopFooterContainer2 .AtatürkImza{
-        filter: invert(100%); 
-        position: relative; 
-        width: 25%;
-    }
+
 
 
 </style>
@@ -240,6 +238,7 @@
 <body style="height: 100%; width: 100%; margin: 0 auto;">
     <div class="HeaderContainer">   
         <div class="AtatürkSöz">
+            <img src="KemalAtatürkImza.png" class="AtatürkImza"> 
             <p class="AtatürkSöz_Text">"Umutsuz Durumlar Yoktur, Umutsuz Insanlar Vardır. Ben Hiç Bir Zaman Umudumu Kaybetmedim!"</p>
             <p class="AtatürkSöz_Text">-Mustafa Kemal ATATÜRK</p>
         </div>
@@ -346,26 +345,23 @@
 
     </div>
 
-    <div class="TopFooterContainer">
+   <div class="TopFooterContainer">
         <div class="TopFooterContainer2">
-            <div class="TopFooterRight">
-                <a href="http://twitter.com" target="_blank">
-                    <i class="fab fa-twitter TopFooterIcons"></i>
-                </a>
-                <a href="http://youtube.com" target="_blank">
-                    <i class="fab fa-youtube TopFooterIcons"></i>
-                </a>
-                <a href="http://instagram.com" target="_blank"> 
-                    <i class="fab fa-instagram TopFooterIcons"></i>
-                </a>
-                <!-- <img src="KemalAtatürkImza.png" class="TopFooterLogo AtatürkImza"> -->
-            </div>
+            <img src="InekObasıLogoName.jpg" class="TopFooterLogo" style="border: 1px solid #aa1b13; width: 150px;">
+            <img src="YeşilObasLogoName.png" class="TopFooterLogo" style="border: 1px solid #01580d; width: 150px;">
+            <p style="color: white;">©2021 copyright all rights reserved</p>
 
-            <div class="TopFooterLeft">
-                <img src="InekObasıLogoName.jpg" class="TopFooterLogo" style="border: 1px solid #aa1b13; width: 150px;">
-                <img src="YeşilObasLogoName.png" class="TopFooterLogo" style="border: 1px solid #01580d; width: 150px;">
-                <p style="color: white;">©2021 copyright all rights reserved</p>
-            </div>
+            <a href="http://twitter.com" target="_blank">
+                <i class="fab fa-twitter TopFooterIcons"></i>
+            </a>
+            <a href="http://youtube.com" target="_blank">
+                <i class="fab fa-youtube TopFooterIcons"></i>
+            </a>
+            <a href="http://instagram.com" target="_blank"> 
+                <i class="fab fa-instagram TopFooterIcons"></i>
+            </a>
+
+
         </div>
     </div>
 
