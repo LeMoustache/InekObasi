@@ -9,6 +9,7 @@
 
     <script src="https://kit.fontawesome.com/e51de850ab.js" crossorigin="anonymous"></script>    
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="shortcut icon" href="InekObasiFavIconWhite.ico"/>
 
 </head>
 
@@ -16,6 +17,7 @@
 
     body {font-family: Arial, Helvetica, sans-serif;}
     * {box-sizing: border-box}
+
     .AtatürkSöz{
         text-align: center;
         background: #dd2118;
@@ -38,16 +40,16 @@
         background: #dd2118;
         color: white;
         font-size: 20px;
-        height: 150px;
+        height: 100px;
         width: auto;
         box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 
     }
     .HeaderImage {
-        width: 300px;
+        width: 275px;
         position:absolute;
-        top:40px;
-        left: 13%;
+        top:2%;
+        left: 17%;
     }
 
     .center{
@@ -62,8 +64,22 @@
     }
     .btn-group{
         position: relative;
-        top: 50px;  
+        top: 40%;
+        font-size: 100%;
     }
+
+    #GFG{
+        text-decoration: none;
+    }
+
+    .btn-group .ButtonText{
+        padding: 1vw;
+    }
+
+    .ButtonText:hover{
+        color: rgb(180, 169, 169);
+    }
+
     .btn-group .buttonHeader {
         background-color: #dd2118; 
         border: 2px solid #aa1b13;
@@ -161,27 +177,27 @@
     .SliderContainer{
     }
     .GündemContainer{
-        margin: auto;
+        position: relative;
+        left: 29%;
         width: 42%;
-        height: 800px;
+        height: 90%;
+        padding-bottom: 1%;
     }
     .GündemText{
         color: black;
         position: relative;
-        font-size: 20px;
+        font-size: 150%;
     }
     .GündemFotoContainer{
-        margin: auto;
         width: 100%; 
         height: 100%;
     }
     .GündemFoto{
+        position: relative;
+        left: 5%;
         display: inline-block;
         width: 45%;
-        margin-left: 23px;
-        margin-right: 10px;
-        margin-top: 10px;
-        border: 1px solid black;
+        padding-bottom: 4px;
     }
     .TopFooterContainer{
         display: inline-block;
@@ -190,29 +206,32 @@
         height: 250px;
     }
 
-    .TopFooterContainer .TopFooterLeft{
+    .TopFooterContainer .TopFooterContainer2{
         position: relative;
-        left: 600px;
-        bottom: 70px;
-        width: 305px;
-        height: auto;
-        text-align: center;
-
+        top: 10%;
+        left: 32%;
+        width: 32%;
+        height: 80%;
     }
 
-    .TopFooterContainer .TopFooterRight{
+    .TopFooterLeft{
         position: relative;
-        left: 1000px;
-        top: 30px;
-        width: 300px;
-        height: auto;
+        float: left;
     }
 
     .TopFooterContainer .TopFooterIcons{
         position: relative;
-        left: 75px;
-        font-size:48px;
+        font-size: 325%;
         color:white;
+        float: right;
+        padding:4px;
+    }
+
+    
+    .TopFooterContainer2 .AtatürkImza{
+        filter: invert(100%); 
+        position: relative; 
+        width: 25%;
     }
 
 
@@ -231,29 +250,29 @@
 
             <div class="btn-group">
                 <div class="dropdown">
-                    <a class="buttonHeader dropbtn button" href="http://InekObasi.tk">INEK OBASI</a>
+                    <a id="GFG" class="dropbtn ButtonText">INEK OBASI</a>
                         <div class="dropdown-content">
                             <a href="http://InekObasi.tk/2023Secimleri/" class="Titlecontents">Seçime Kalan Süre</a>
-                            <a href="#" class="Titlecontents">Anket Sonuçları</a>
-                            <a href="#" class="Titlecontents">Link 3</a>
+                            <a href="http://InekObasi.tk/Anket" class="Titlecontents">Anket Sonuçları</a>
+                            <a href="http://InekObasi.tk/Projeler" class="Titlecontents">Projeler</a>
                         </div>
                 </div>
 
-                <a class="buttonHeader button" href="http://InekObasi.tk/YesilOba">YEŞIL OBA</a>
-                <a class="buttonHeader button" href="http://InekObasi.tk/Haberler">HABERLER</a>
-                <a class="buttonHeader button" href="http://InekObasi.tk/Hakkinda">HAKKINDA</a>
-                <a class="buttonHeader button" href="http://InekObasi.tk/Iletisim">ILETIŞIM</a>
+                <a id="GFG" class="ButtonText" href="http://InekObasi.tk/YesilOba">YEŞIL OBA</a>
+                <a id="GFG" class="ButtonText" href="http://InekObasi.tk/Haberler">HABERLER</a>
+                <a id="GFG" class="ButtonText" href="http://InekObasi.tk/Hakkinda">HAKKINDA</a>
+                <a id="GFG" class="ButtonText" href="http://InekObasi.tk/Iletisim">ILETIŞIM</a>
             </div>
 
         </div>
     </div>
 
-    <div class="Footer">
+   <div class="Footer">
             <img class="FooterLogo" src="InekObasiLogo.jpg"><img>
     </div>
 
     <div class="SliderContainer">
-        <div class="w3-content w3-section w3-display-container slider" style="width: 800px;">
+        <div class="w3-content w3-section w3-display-container slider" style="width: 100%;">
             <img class="mySlides w3-animate-right" src="ÜyeAranıyor.png" >
             <img class="mySlides w3-animate-right" src="Kazakistan.png">
             <img class="mySlides w3-animate-right" src="ÜyeAranıyor.png" >
@@ -328,27 +347,26 @@
     </div>
 
     <div class="TopFooterContainer">
+        <div class="TopFooterContainer2">
+            <div class="TopFooterRight">
+                <a href="http://twitter.com" target="_blank">
+                    <i class="fab fa-twitter TopFooterIcons"></i>
+                </a>
+                <a href="http://youtube.com" target="_blank">
+                    <i class="fab fa-youtube TopFooterIcons"></i>
+                </a>
+                <a href="http://instagram.com" target="_blank"> 
+                    <i class="fab fa-instagram TopFooterIcons"></i>
+                </a>
+                <!-- <img src="KemalAtatürkImza.png" class="TopFooterLogo AtatürkImza"> -->
+            </div>
 
-        <div class="TopFooterRight">
-            <a href="http://twitter.com" target="_blank">
-                <i class="fab fa-twitter TopFooterIcons"></i>
-            </a>
-            <a href="http://youtube.com" target="_blank">
-                <i class="fab fa-youtube TopFooterIcons"></i>
-            </a>
-            <a href="http://instagram.com" target="_blank"> 
-                <i class="fab fa-instagram TopFooterIcons"></i>
-            </a>
-
-            <img src="KemalAtatürkImza.png" class="TopFooterLogo" style="filter: invert(100%); position: relative; width: 150px; left: 75px;">
+            <div class="TopFooterLeft">
+                <img src="InekObasıLogoName.jpg" class="TopFooterLogo" style="border: 1px solid #aa1b13; width: 150px;">
+                <img src="YeşilObasLogoName.png" class="TopFooterLogo" style="border: 1px solid #01580d; width: 150px;">
+                <p style="color: white;">©2021 copyright all rights reserved</p>
+            </div>
         </div>
-
-        <div class="TopFooterLeft">
-            <img src="InekObasıLogoName.jpg" class="TopFooterLogo" style="border: 1px solid #aa1b13; width: 150px;">
-            <img src="YeşilObasLogoName.png" class="TopFooterLogo" style="border: 1px solid #01580d; width: 150px;">
-            <p style="color: white;">©2021 copyright all rights reserved</p>
-        </div>
-        
     </div>
 
 </body>
