@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Iftara Kalan Süre</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+    <script src="javascript/Adhan.js"></script>
+    <script src="javascript/moment.js"></script>
+    <script src="javascript/moment-timezone-with-data.js"></script>
+
+    <script id="visitorInfo">  
+        // "https://ipinfo.io"
+            $.get("https://ipinfo.io", function(response) {
+                var userIp = response.ip; // get visitor ip
+
+                var userLat = response.loc.split(",")[0]; // get visitor latitude from location
+                var userLong = response.loc.split(",")[1]; // get visitor longtitude from location
+                var userCity = response.city; // get visitor city name
+                var userTimeZone = response.timezone // get visitor time zone
+
+                getPrayerTimes(userLat, userLong, userTimeZone, userCity)
+            }, "json")
+    </script>
+    <script id="getHadith">
+        function getHadith(){
+            // "https://ahadith-api.herokuapp.com/api/books/en"              
+            $.get("https://ahadith-api.herokuapp.com/api/books/en", function(response) {
+                bookID = response['Books'][Math.floor(Math.random() * response['Books'].length).toString()]['Book_ID'] // get random book id
+
+                $.get("https://ahadith-api.herokuapp.com/api/chapter/"+bookID+"/en", function(response) {
+                    chapterID = response['Chapter'][Math.floor(Math.random() * response['Chapter'].length).toString()]['Chapter_ID'] // get random chapter id
+
+                    $.get(" https://ahadith-api.herokuapp.com/api/ahadith/"+bookID+"/"+chapterID+"/en", function(response) {
+                        hadithID = Math.floor(Math.random() * response['Chapter'].length).toString()
+
+                        hadithSanad = response['Chapter'][hadithID]['En_Sanad'] // get random chapter id
+                        hadith = response['Chapter'][hadithID]['En_Text'] // get random chapter id
+
+                        hadithSanadDiv = document.getElementById('HadithSanad')
+                        hadithDiv = document.getElementById('HadithText')
+
+                        hadithSanadDiv.innerHTML=hadithSanad
+                        hadithDiv.innerHTML=hadith
+
+                        if (hadithDiv.scrollHeight > hadithDiv.clientHeight || hadithSanadDiv.scrollHeight > hadithSanadDiv.clientHeight ) {
+                            getHadith()
+                        }
+                    })
+                })
+            })
+        }
+        getHadith()
+    </script>
+</head>
+
+<style>
+
+    .TopFrame{
+        margin-top: 1%;
+        position: absolute;
+        display: inline-block;
+        margin-left: 80%;
+        width: 100%;
+    }
+
+    @media only screen and (min-aspect-ratio: 1/1){
+        .TopFrame{
+            position: relative;
+            width: 10%;
+            height: 5%;
+        }
+    }
+    @media only screen and (max-aspect-ratio: 3/4){
+        .TopFrame{
+            margin-left: 70%;
+            width: 30%;
+            height: 5%;
+            margin-bottom: .5%;
+        }
+    }
+
+    @media only screen and (min-height:1000px){
+        .TopFrame{
+            margin-top: 1%;
+            margin-left: 80%;
+            width: 20%;
+        }
+    }
+
+    .HourFrame{
+        padding-top: 1px;
+        margin-top: 1px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 6%;
+    }
+
+    .mainFrame{
+        aspect-ratio: 1/2;
+        margin-top: 2px;
+        padding-top: 2px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        height: 100%;
+        display: block;
+        text-align: center;
+    }
+         
+    @media only screen and (min-aspect-ratio: 1/1){
+        .mainFrame{
+            width: 50%;
+        }
+    }
+
+    .timeUntilIftarFrame{
+        padding-top: 10px;
+        margin-top: 7px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 97%;
+        height: 47%;
+    }
+
+    @media only screen and (max-height: 800px){
+        .timeUntilIftarFrame{
+            padding-top: 2px;
+            margin-top: 7px;
+        }
+    }
+
+    .otherDiv{
+        padding-top: 2px;
+        margin-top: 2px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 97%;
+        height: 47%;
+        max-height: 47%;
+    }
+
+    .Footer{
+        padding-top: 2px;
+        margin-top: 2px;
+        margin-left: auto;
+        margin-right: auto;
+        width: inherit;
+        height: inherit;
+        max-height: 10%;
+    }
+
+    .otherText{
+        text-align: center;
+        font-size: 50%;
+        font-family:Arial, Helvetica, sans-serif;
+        opacity: 25%;
+    }
+
+    @media only screen and (max-aspect-ratio: 1/1) {
+        .otherText{
+            padding-top: 3%;
+            padding-bottom: 5%;
+            font-size: 100%;
+        }
+    }
+
+    @media only screen and (min-aspect-ratio: 1/2) and (max-aspect-ratio: 1/1)  {
+        .otherText{
+            padding-top: 3%;
+            padding-bottom: 5%;
+            font-size: 100%;
+        }
+    }
+
+</style>
+
+<body style="width: 100%; height: 100%; position: absolute; margin: 0px;">
+    
+
+    <div class=TopFrame>
+        <div style="position: relative; float: right;width: 90%; text-align: right; width: 50%; height: 40%; display: inline;">
+            <a style="cursor: pointer;" onclick="langChange()">
+                <img src="assets/tr.svg" style="width: 25%; height: 100%;">
+            </a>
+            <a style="cursor: pointer;" onclick="langChange()">
+                <img src="assets/gb.svg" style="width: 25%; height: 100%;">
+            </a>
+            <a style="cursor: pointer;" onclick="langChange()">
+                <img src="assets/de.svg" style="width: 25%; height: 100%;">
+            </a>
+        </div>
+
+        <datalist id="cityList" style="z-index:-1">
+                    
+        </datalist>
+
+        <input id="cityInput" type="text" autocomplete="on" list="cityList" placeholder="Şehir Seç" oninput=cityChosen() style="background-color:#e5e5e5;text-align:left; position:relative;width: 80%; height: 40%; float: right;"></input>
+    </div>
+
+
+    <div class=HourFrame style="background-color:#000080; font-size: 3vw; padding-top: .01%;padding-bottom: .01; color: white; border-top: solid; border-bottom: solid;">
+        <p class="otherText" id="prayerTimesText"style="margin-top: .55%;">EZAN VAKITLERI</p>
+    </div>
+
+
+    <div class=mainFrame style="background-color:#000080; font-size: 3vw;">
+        <div class=timeUntilIftarFrame style="border-style:solid; color: white;">
+            <b id="ramazanDate" class="otherText" style="font-family:Lucida Console; opacity: 100%;">Istanbul - Ramazanın X'inci Günü</b>
+            <h1 style="text-align: center; font-size: 150%; font-family:Lucida Console">IFTARA KALAN SÜRE</h1>
+            <h1 id="timer" style="text-align: center; font-size: 200%;  margin-top: 8%; font-family:Lucida Console">Yükleniyor...</h1>
+        </div>
+        <div id="hadithContainer" class=otherDiv style="border-style: solid; text-size-adjust: 80%; color: white;">
+            <div style="width: 100%; height: 15%; margin-top: 3%;">Hadis-i Şerif</div>
+            <div id="HadithSanad" style="width: 100%; height: 10%; margin-top: 1%; font-size:x-large;">Yükleniyor..</div>
+            <div id="HadithText" style="width: 100%; height: 67%; font-size:x-large;">Yükleniyor..</div>
+        </div>
+    </div>
+
+    <div class="Footer" style="background-color:#000080; font-size: 3vw; padding-top: .05%; padding-bottom: .01; color: white;">
+        <p class="otherText">© LeMustache 2022</p>
+    </div>
+
+
+    <script id="updateScript">
+
+        // set times fired to 0
+        var timesFired = 0
+
+        function startTimer(fajrTime, dhuhrTime, asrTime, maghribTime, ishaTime, userCity,maghribCounterTime,timeZone){
+
+            // get Ramadan start date & today's date
+            var ramadanStart = new Date('Apr 02, 2022');
+            var today = new Date();
+            var ramazanDate = Math.round((today.getTime() - ramadanStart.getTime())/ (1000 * 3600 * 24)); // find the difference between the two dates and round it
+             
+            // update website
+            document.getElementById("ramazanDate").innerHTML = userCity + " - Ramazanın " + ramazanDate + "'inci Günü" ;
+            document.getElementById("prayerTimesText").innerHTML = "Sabah: "+fajrTime +" Öğle: "+dhuhrTime+" İkindi: "+asrTime+" Akşam: "+maghribTime+" Yatsı: "+ishaTime
+            
+            //-----------
+
+            // reset variables
+            timesFired = timesFired+1;
+            var distance = 1;
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+                // if fired more than once
+                if (timesFired>1){
+                    timesFired = 0 // set times fired to 0
+                    clearInterval(x);  // reset timer
+                }
+
+                timesFired = 1 // set times fired to 1 to avoid bugs. Don't ask me how that works
+
+                // Set the date we're counting down to
+                var countDownDate = new Date(maghribCounterTime);
+
+                // Get today's date and time in the correct timezone hopefully 
+                var now = new Date(moment.tz(timeZone).format('LL HH:mm:ss'));
+
+                // Find the distance between now and the count down date
+                distance = countDownDate - now;
+                
+                // Time calculations for days, hours, minutes and seconds
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Display the result in the element with id="demo"
+                document.getElementById("timer").innerHTML = hours + "s "
+                + minutes + "d " + seconds + "s ";
+                
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x); // reset timer
+                    document.getElementById("timer").innerHTML = "IFTAR VAKTI"; // change text to IFTAR VAKTI
+                    startTimer(fajrTime, dhuhrTime, asrTime, maghribTime, ishaTime, userCity,maghribCounterTime,timeZone) // restart timer
+                }
+
+            }, 1000);
+        }
+    </script>
+    <script id="citySelector">
+        function cityChosen() {
+            // send the input to api (returns cities)
+            var citiesList = document.getElementById("cityList")
+            var cityInput = document.getElementById("cityInput")
+
+            $.get("https://api.teleport.org/api/cities/?search="+document.getElementById("cityInput").value).then(function(data){
+                // get the returned cities
+                for (var i = 0; i<data['_embedded']['city:search-results'].length; i++) { 
+
+                    // get the names of the cities -> data['_embedded']['city:search-results'][i]['matching_full_name']
+                    var CityName = data['_embedded']['city:search-results'][i]['matching_full_name'].split(",")[0]
+                    var CityGeonameid = data['_embedded']['city:search-results'][i]['_links']['city:item']['href']
+
+                    // check if city is already in the list
+                    if (document.getElementById(CityName)){
+                        document.getElementById(CityName).remove() // remove the city if it is
+                    }
+
+                    // add city to list
+                    const para = document.createElement("option"); 
+                    para.appendChild(document.createTextNode(CityName)); // add text to citys element
+                    para.setAttribute('id',CityName); // set id to CityName
+                    para.setAttribute('geonameid',CityGeonameid); // set geonameid to link (to be able to get location later on)
+
+                    document.getElementById("cityList").appendChild(para); // add city to parent
+
+                    children = citiesList.children // get all cities 
+
+                    for (i = 0; i < children.length; i++) { 
+                        // check if city is in the list
+                        if(cityInput.value.toUpperCase()==children[i].innerHTML.toUpperCase()){
+                            // get details about city
+                            $.get(CityGeonameid).then(function(cityData){
+                                // get city time zone
+                                $.get(cityData['_links']['city:timezone']['href']).then(function(cityTimeZone){
+                                    cityTimeZone = cityTimeZone['iana_name']
+
+                                    // get city latitude and longtitude
+                                    cityLat = cityData['location']['latlon']['latitude']
+                                    cityLon = cityData['location']['latlon']['longitude']
+
+                                    // clear input field
+                                    document.getElementById("cityInput").value = ""
+
+                                    // fire get prayer times function
+                                    getPrayerTimes(cityLat, cityLon, cityTimeZone, CityName)
+                                })
+                            })
+                        }
+                    }
+                }
+            })
+        }
+    </script>
+    <script id="getPrayerTimes">
+        function getPrayerTimes(lat,long,timezone,city){
+            var date = new Date(); // get todays date
+
+            var coordinates = new adhan.Coordinates(lat, long);
+
+            // customize prayer times
+            var params = adhan.CalculationMethod.Turkey();
+            params.madhab = adhan.Madhab.Hanafi;
+            params.adjustments.fajr = 60;
+            params.adjustments.asr = -60;
+            params.adjustments.isha = -60;
+
+            // get prayer times
+            var prayerTimes = new adhan.PrayerTimes(coordinates, date, params);
+            var fajrTime = moment(prayerTimes.fajr).tz(timezone).format('HH:mm');
+            var sunriseTime = moment(prayerTimes.sunrise).tz(timezone).format('HH:mm');
+            var dhuhrTime = moment(prayerTimes.dhuhr).tz(timezone).format('HH:mm');
+            var asrTime = moment(prayerTimes.asr).tz(timezone).format('HH:mm');
+            var maghribTime = moment(prayerTimes.maghrib).tz(timezone).format('HH:mm');
+            var ishaTime = moment(prayerTimes.isha).tz(timezone).format('HH:mm');
+            
+            // update website
+            startTimer(fajrTime,dhuhrTime,asrTime,maghribTime,ishaTime,city,moment(prayerTimes.maghrib).tz(timezone).format('LL HH:mm:ss'),timezone);
+        }
+    </script>
+    <script>
+        function langChange(){
+            alert("Language Support Coming Soon")
+        }
+    </script>
+
+</body>
+
+</html>
