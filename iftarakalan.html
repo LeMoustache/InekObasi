@@ -278,6 +278,7 @@
                 
                 // If the count down is finished, write some text
                 if (distance < 0) {
+                    timesFired = 0
                     clearInterval(x); // reset timer
                     document.getElementById("timer").innerHTML = "IFTAR VAKTI"; // change text to IFTAR VAKTI
                     startTimer(fajrTime, dhuhrTime, asrTime, maghribTime, ishaTime, userCity,maghribCounterTime,timeZone) // restart timer
