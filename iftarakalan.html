@@ -231,24 +231,6 @@
 
         function startTimer(fajrTime, dhuhrTime, asrTime, maghribTime, ishaTime, userCity,maghribCounterTime,timeZone){
 
-            document.getElementById('prayerTimesText').remove()
-            const prayerTimesText = document.createElement("p"); 
-            prayerTimesText.appendChild(document.createTextNode("EZAN VAKITLERI"));
-            prayerTimesText.setAttribute('id','prayerTimesText'); prayerTimesText.setAttribute('class',"otherText");  prayerTimesText.setAttribute('style',"margin-top: .55%;"); // set id to CityName
-            document.getElementById("HourFrame").appendChild(prayerTimesText);
-
-            document.getElementById('ramazanDate').remove()
-            const ramazanDateDiv = document.createElement("b"); 
-            ramazanDateDiv.appendChild(document.createTextNode("YÜKLENIYOR - Ramazanın X'inci Günü"));
-            ramazanDateDiv.setAttribute('id','ramazanDate'); ramazanDateDiv.setAttribute('class',"otherText");  ramazanDateDiv.setAttribute('style',"font-family:Lucida Console; opacity: 100%;"); // set id to CityName
-            document.getElementById("timeUntilIftarFrame").prepend(ramazanDateDiv);
-
-            document.getElementById('timer').remove()
-            const timer = document.createElement("b"); 
-            timer.appendChild(document.createTextNode("YÜKLENIYOR"));
-            timer.setAttribute('id','timer'); timer.setAttribute('style',"text-align: center; font-size: 200%;  margin-top: 8%; font-family:Lucida Console;"); // set id to CityName
-            document.getElementById("timeUntilIftarFrame").appendChild(timer);
-
             // get Ramadan start date & today's date
             var ramadanStart = new Date('Apr 02, 2022');
             var today = new Date();
