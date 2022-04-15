@@ -210,7 +210,7 @@
 
     <div class=mainFrame style="background-color:#000080; font-size: 3vw;">
         <div id="timeUntilIftarFrame"class=timeUntilIftarFrame style="border-style:solid; color: white;">
-            <b id="ramazanDate" class="otherText" style="font-family:Lucida Console; opacity: 100%;">Istanbul - Ramazanın X'inci Günü</b>
+            <b id="ramazanDate" class="otherText" style="font-family:Lucida Console; opacity: 100%;">Istanbul - Ramazanın X. Günü</b>
             <h1 style="text-align: center; font-size: 150%; font-family:Lucida Console">IFTARA KALAN SÜRE</h1>
             <h1 id="timer" style="text-align: center; font-size: 200%;  margin-top: 8%; font-family:Lucida Console">Yükleniyor...</h1>
         </div>
@@ -238,7 +238,7 @@
             var ramazanDate = Math.round((today.getTime() - ramadanStart.getTime())/ (1000 * 3600 * 24)); // find the difference between the two dates and round it
              
             // update website
-            document.getElementById("ramazanDate").innerHTML = userCity + " - Ramazanın " + ramazanDate + "'inci Günü" ;
+            document.getElementById("ramazanDate").innerHTML = userCity + " - Ramazanın " + ramazanDate + ". Günü" ;
             document.getElementById("prayerTimesText").innerHTML = "Sabah: "+fajrTime +" Öğle: "+dhuhrTime+" İkindi: "+asrTime+" Akşam: "+maghribTime+" Yatsı: "+ishaTime
             
             //-----------
