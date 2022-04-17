@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
-    <script src="Adhan.js"></script>
-    <script src="moment.js"></script>
-    <script src="moment-timezone-with-data.js"></script>
+    <script src="javascript/Adhan.js"></script>
+    <script src="javascript/moment.js"></script>
+    <script src="javascript/moment-timezone-with-data.js"></script>
 
     <script id="visitorInfo">  
         // "https://ipinfo.io"
@@ -210,7 +210,7 @@
 
     <div class=mainFrame style="background-color:#000080; font-size: 3vw;">
         <div id="timeUntilIftarFrame"class=timeUntilIftarFrame style="border-style:solid; color: white;">
-            <b id="ramazanDate" class="otherText" style="font-family:Lucida Console; opacity: 100%;">Istanbul - Ramazanın X. Günü</b>
+            <b id="ramazanDate" class="otherText" style="font-family:Lucida Console; opacity: 100%;">Istanbul - Ramazanın X'inci Günü</b>
             <h1 style="text-align: center; font-size: 150%; font-family:Lucida Console">IFTARA KALAN SÜRE</h1>
             <h1 id="timer" style="text-align: center; font-size: 200%;  margin-top: 8%; font-family:Lucida Console">Yükleniyor...</h1>
         </div>
@@ -229,8 +229,12 @@
     <script id="updateScript">
         // set times fired to 0
         var timesFired = 0
+        var ezan = new Audio('assets/ezan_sound.mp3');
 
         function startTimer(fajrTime, dhuhrTime, asrTime, maghribTime, ishaTime, userCity,maghribCounterTime,timeZone){
+
+            // document.getElementById("prayerTimesText").innerHTML = "Yükleniyor.."
+            // document.getElementById("timer").innerHTML = "Yükleniyor"; // change text to IFTAR VAKTI
 
             // get Ramadan start date & today's date
             var ramadanStart = new Date('Apr 02, 2022');
@@ -238,7 +242,7 @@
             var ramazanDate = Math.round((today.getTime() - ramadanStart.getTime())/ (1000 * 3600 * 24)); // find the difference between the two dates and round it
              
             // update website
-            document.getElementById("ramazanDate").innerHTML = userCity + " - Ramazanın " + ramazanDate + ". Günü" ;
+            document.getElementById("ramazanDate").innerHTML = userCity + " - Ramazanın " + ramazanDate + "'inci Günü" ;
             document.getElementById("prayerTimesText").innerHTML = "Sabah: "+fajrTime +" Öğle: "+dhuhrTime+" İkindi: "+asrTime+" Akşam: "+maghribTime+" Yatsı: "+ishaTime
             
             //-----------
@@ -255,6 +259,7 @@
                 if (timesFired>1){
                     timesFired = 0 // set times fired to 0
                     clearInterval(x);  // reset timer
+                    distance = countDownDate - now;
                 }
 
                 timesFired = 1 // set times fired to 1 to avoid bugs. Don't ask me how that works
@@ -276,15 +281,19 @@
                 // Display the result in the element with id="demo"
                 document.getElementById("timer").innerHTML = hours + "s "
                 + minutes + "d " + seconds + "s ";
+                console.log(minutes)
                 
                 // If the count down is finished, write some text
                 if (distance < 0) {
+
+                    if (minutes<0 && minutes>-5){ // if not too much time has past since iftar
+                        ezan.play(); // play ezan
+                    }
+
                     timesFired = 0
                     clearInterval(x); // reset timer
                     document.getElementById("timer").innerHTML = "IFTAR VAKTI"; // change text to IFTAR VAKTI
-                    startTimer(fajrTime, dhuhrTime, asrTime, maghribTime, ishaTime, userCity,maghribCounterTime,timeZone) // restart timer
                 }
-
             }, 1000);
         }
     </script>
@@ -344,6 +353,8 @@
         }
     </script>
     <script id="getPrayerTimes">
+
+
         function getPrayerTimes(lat,long,timezone,city){
             var date = new Date(); // get todays date
 
