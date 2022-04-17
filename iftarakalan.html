@@ -54,6 +54,13 @@
         }
         getHadith()
     </script>
+
+    <script id="getLang">
+        function selectLang(){
+
+        }
+    </script>
+
 </head>
 
 <style>
@@ -242,7 +249,7 @@
             var ramazanDate = Math.round((today.getTime() - ramadanStart.getTime())/ (1000 * 3600 * 24)); // find the difference between the two dates and round it
              
             // update website
-            document.getElementById("ramazanDate").innerHTML = userCity + " - Ramazanın " + ramazanDate + "'inci Günü" ;
+            document.getElementById("ramazanDate").innerHTML = userCity + " - " + ramazanDate + ". Gün" ;
             document.getElementById("prayerTimesText").innerHTML = "Sabah: "+fajrTime +" Öğle: "+dhuhrTime+" İkindi: "+asrTime+" Akşam: "+maghribTime+" Yatsı: "+ishaTime
             
             //-----------
@@ -281,7 +288,6 @@
                 // Display the result in the element with id="demo"
                 document.getElementById("timer").innerHTML = hours + "s "
                 + minutes + "d " + seconds + "s ";
-                console.log(minutes)
                 
                 // If the count down is finished, write some text
                 if (distance < 0) {
@@ -293,6 +299,9 @@
                     timesFired = 0
                     clearInterval(x); // reset timer
                     document.getElementById("timer").innerHTML = "IFTAR VAKTI"; // change text to IFTAR VAKTI
+                }else{
+                    ezan.pause() 
+                    ezan.currentTime = 0; // reset ezan sound
                 }
             }, 1000);
         }
@@ -353,7 +362,6 @@
         }
     </script>
     <script id="getPrayerTimes">
-
 
         function getPrayerTimes(lat,long,timezone,city){
             var date = new Date(); // get todays date
