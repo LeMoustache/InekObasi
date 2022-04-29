@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+</head>
+
+<style>
+  body {
+    font-family: Helvetica;
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  .site-header { 
+    /*background-color: linear-gradient(#f19719,#f5af19);
+
+    background: -webkit-linear-gradient(left, transparent 0%,#f19719 50%); 
+    background: -moz-linear-gradient(left, transparent 0%,#f19719 50%); 
+    background: linear-gradient(to left, transparent 0%,#f19719 50%);   */
+    
+    /*border-bottom: 1px solid #ccc;*/
+    padding: .5em 1em;
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+  }
+
+  .site-header::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .site-identity {
+    float: left;
+  }
+
+  .site-identity h1 {
+    opacity: 100%;
+    font-size: 1.5em;
+    margin: .7em 0 .3em 0;
+    display: inline-block;
+    font-weight:lighter;
+  }
+
+  .site-identity h1 span{
+    font-weight:600;
+    color: #000;
+  }
+
+  .site-identity h1 span.active{
+    color: none;
+    background-image: conic-gradient(#f12a11 40deg,#f5af19);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .site-identity img {
+    max-width: 55px;
+    float: left;
+    margin: 5px 10px 0 0;
+  }
+
+  .site-navigation {
+    float: right;
+  }
+
+  .site-navigation ul, li {
+    margin: 0; 
+    padding: 0;
+  }
+
+  .site-navigation li {
+    display: inline-block;
+    margin: 1.4em 1em 1em 1em;
+  }
+
+    .site-header.headerActive{
+        background-color: #fff;
+        -webkit-box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.25);
+        -moz-box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.25);
+    }
+
+    .site-identity h1 span.textActive{
+      background-image: none;
+      color: transparent;
+    }
+      
+    .dropbtn {
+      color: black;
+      padding: 16px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      display: none;
+      background-color: Transparent;
+    }
+    .dropdown {
+      float: right;
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      right: 0;
+      z-index: 1;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .show {display: block;}
+
+    @media only screen and (max-width: 500px){
+        .nav{
+            display: none;
+        }
+        .dropbtn{
+          display: block;
+        }
+        .site-identity{
+          float: none;
+          display: inline-flex;
+          margin-left:auto;
+          margin-right: auto;
+          justify-content: space-between;
+          max-width: fit-content;
+        }
+    }
+
+    @media only screen and (max-width: 290px){
+        .site-identity h1{
+          display: none;
+        }
+    }
+
+</style>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <header class="site-header">
+        <div class="site-identity">
+          <a href="#"><img id="logo" src="../assets/leMoustache_Mustache3.png" alt="Logo"/></a>
+          <h1 id="logoText">Le<span>Mustache</span></h1>
+        </div>  
+        <nav class="site-navigation">
+          <ul class="nav">
+            <li id="aboutLink"><a href="#">About</a></li> 
+            <li id="projectLink"><a href="#">Projects</a></li> 
+            <li id="contactLink"><a href="#">Contact</a></li> 
+          </ul>
+        </nav>
+
+        <div class="site-navigation dropdown">
+          <button onclick="myFunction()" class="dropbtn" id="dropbtn">☰</button>
+
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#">About</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a> 
+          </div>
+
+          <script>
+            /* When the user clicks on the button, 
+            toggle between hiding and showing the dropdown content */
+            listOpen = true;
+            function myFunction() {
+              document.getElementById("myDropdown").classList.toggle("show");
+              if(listOpen){
+                document.getElementById("dropbtn").innerHTML = "X"
+                listOpen = false;
+              }else{
+                document.getElementById("dropbtn").innerHTML = "☰"
+                listOpen = true;
+              }
+            }
+            // Close the dropdown if the user clicks outside of it
+            window.onclick = function(event) {
+              if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                  }
+                }
+              }
+            }
+            </script>
+        </div>
+      </header>
+      <script src="js/headerAnimation.js"></script>
+
+      <script>
+        $(window).on("scroll", function() {
+            if($(window).scrollTop() > 50) {
+                $(".site-header").addClass("headerActive");
+                $("#logoText span").addClass("active");
+  
+            } else {
+                //remove the background property so it comes transparent again (defined in your css)
+              $(".site-header").removeClass("headerActive");
+              $("#logoText span").removeClass("active");
+            }
+        });
+      </script>
+</body>
+
+</html>
