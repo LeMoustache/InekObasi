@@ -6,14 +6,168 @@
 
 <style>
     @import url(files/style.css);
+    
     .footerFrame{
-        background-color: blue;
+        grid-area: "footer";
+        text-align: center;
+
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: 60% 150% 10%;
+
+        background-color: #1a1a1a;
     }
 
+    .footerFrame .emailNewsletterFrame{
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .footerFrame .emailNewsletterFrame .EmailNewslatter{
+        width: 90%;
+        height: 40%;
+        
+        justify-self: center;
+        align-self: center;
+
+        display: flex;
+        flex-direction:row;
+
+        border-radius: 50px;
+        border:1px solid grey;
+        padding:2px;
+
+        background-color: white;
+    }
+
+    .footerFrame .emailNewsletterFrame .EmailNewslatter *{
+        border-radius: 50px;
+    }
+
+    .emailNewsletterSubmit{
+        border:1px solid var(--orangered);background:var(--orangered);color:white; width: 50%;z-index: 1; cursor: pointer;
+    }
+
+    .emailNewsletterSubmit:hover{
+        background: #e2280f
+    }
+
+    
+    .footerFrame span{
+        width: 100%;
+        height: 100%;
+    }
+
+    .footerFrame .footerContentFrame{
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: 20% 80%;
+        grid-template-columns: auto;
+    }
+
+    .footerFrame .footerContentFrame .footerLogo{
+        width: 100%;height: 100%;display: flex; align-items: center;justify-content: flex-start;
+    }
+
+    .footerFrame .footerContentFrame .footerContent{
+        width: 100%;height: 100%;
+
+        display: grid;
+        grid-template-rows: auto 80%;
+    }
+
+    .footerFrame .footerContentFrame .footerContent .footerContentFrames{
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .footerFrame .footerContentFrame .footerContent .footerContentFrames .footerTextTitleFrame{
+        display: flex;
+        flex-direction: column ;
+        align-items: center;
+
+        background-color:#1a1a1a;    
+    }
+
+    .footerFrame .footerContentFrame .footerContent .footerContentFrames .footerTextTitleFrame a{
+        width: fit-content;
+    }
+
+
+    .footerFrame .bFooter{
+        width: 100%;
+        height: 100%; 
+
+        background-color:#141414;
+
+        display: grid;
+        grid-template-columns: .5fr 2fr 1fr;
+    }
 </style>
 
 <body>
     <footer class="footerFrame">
+        
+        <div class="emailNewsletterFrame">
+            <div class="EmailNewslatter">
+                <input class="Input" type="email" placeholder="Email Newsletter" style="flex-grow:2; border:none;">
+                <button class="Input emailNewsletterSubmit">Join</button>
+            </div>
+        </div>
+        
+        <div class="footerContentFrame">
+            <div class="footerLogo"><img style="width: 100px;margin-left: 10%;" src="assets/leMoustache_Mustache3.png"></div>
+            <div class="footerContent">
+                <div class="footerTitleContent footerContentFrames" style="align-items: flex-end;">
+                    <div class="footerTextTitleFrame">
+                        LINKS
+                    </div>
+                    <div class="footerTextTitleFrame">
+                        SOCIALS
+                    </div>
+                    <div class="footerTextTitleFrame">
+                        LEMUSTACHE
+                    </div>
+                </div>
+                <div class="footerTextContent footerContentFrames">
+                    <div class="footerTextTitleFrame">
+                        <a href="#"><p>About</p></a>
+                        <a href="#"><p>Projects</p></a>
+                        <a href="#"><p>Contact</p></a>
+                    </div>
+                    <div class="footerTextTitleFrame">
+                        <a href="#"><p>Twiter</p></a>
+                        <a href="#"><p>Github</p></a>
+                        <a href="#"><p>Discord</p></a>
+                    </div>
+                    <div class="footerTextTitleFrame">
+                        <a href="#"><p>Recent Project</p></a>
+                        <a href="#"><p>Most Liked Project</p></a>
+                        <a href="#"><p>Other Projects</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bFooter">
+            <span></span>
+            <div class="textFrame" style="display: flex;align-items: center;color: white;">©2020 LeMustache</div>
+            <span style="display: flex;align-items: center;color: white;justify-content: space-evenly;">                
+                <a href="#" style="color: white;">Terms</a>
+                <a href="#" style="color: white;">Privacy</a>
+            </span>
+        </div>
+
     </footer>
 </body>
 
