@@ -167,9 +167,9 @@
           <button onclick="myFunction()" class="dropbtn" id="dropbtn">☰</button>
 
           <div id="myDropdown" class="dropdown-content">
-            <a href="#">About</a>
-            <a href="#">Projects</a>
-            <a href="#">Contact</a> 
+            <a href="#" id="about">About</a>
+            <a href="#" id="projects">Projects</a>
+            <a href="#" id="contact">Contact</a> 
           </div>
 
           <script>
@@ -178,12 +178,27 @@
             listOpen = true;
             function myFunction() {
               document.getElementById("myDropdown").classList.toggle("show");
+
+                const tl = new TimelineMax();
+                
+                const about = document.querySelector("#about");
+                const projects = document.querySelector("#projects");
+                const contact = document.querySelector("#contact");
+
+                const myDropdown = document.querySelector("#myDropdown");
+
+
               if(listOpen){
                 document.getElementById("dropbtn").innerHTML = "X"
                 listOpen = false;
+
+                tl.fromTo(myDropdown,1,{x:'100%'},{x:'0%',ease:Power2.easeOut}).to(myDropdown,1,{display:'none'})
+
               }else{
                 document.getElementById("dropbtn").innerHTML = "☰"
                 listOpen = true;
+
+                tl.to(myDropdown,.1,{display:'block'}).fromTo(myDropdown,1,{x:'0%'},{x:'100%',ease:Power2.easeOut})
               }
             }
             // Close the dropdown if the user clicks outside of it
@@ -191,6 +206,7 @@
               if (!event.target.matches('.dropbtn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
                 var i;
+
                 for (i = 0; i < dropdowns.length; i++) {
                   var openDropdown = dropdowns[i];
                   if (openDropdown.classList.contains('show')) {
@@ -209,7 +225,6 @@
             if($(window).scrollTop() > 50) {
                 $(".site-header").addClass("headerActive");
                 $("#logoText span").addClass("active");
-  
             } else {
                 //remove the background property so it comes transparent again (defined in your css)
               $(".site-header").removeClass("headerActive");
