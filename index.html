@@ -20,6 +20,7 @@
 
     <script> 
         $(function(){
+            $("#loadingscreen").load("loading.html"); 
             $("#header").load("header.html"); 
             $("#slider").load("slider.html"); 
             $("#footer").load("footer.html"); 
@@ -48,14 +49,16 @@
 
 <style>
     @import url(files/style.css);
+    @import url(mainFrameTitle.css);
+    @import url(animations.css);
 
     .mainBody{
         width: 100%;
         height: 100%;
 
-        display: grid;
+        display: none;
         grid-template-columns: auto;
-        grid-template-rows: auto 100vh 90vh 90vh 90vh 70vh;
+        grid-template-rows: auto 100vh 90vh auto 125vh 50vh;
         grid-template-areas: 
         "header"
         "main"
@@ -65,6 +68,14 @@
         "footer"
         ;
 
+    }
+
+    h3{
+        text-decoration: underline var(--orangered);
+
+        -webkit-text-underline-position: under;
+        -ms-text-underline-position: below;
+        text-underline-position: under; 
     }
 
     .mainFrame{
@@ -106,14 +117,13 @@
         z-index: 2;
 
         display: grid;
-        grid-template-columns: 50% auto;
-        grid-template-rows: 75% auto; 
+        grid-template-rows: 50% auto 30%; 
         grid-template-areas:
-            "main logo"
-            "main logo"
-            "links logo";
+            "main"
+            "main"
+            "links";
 
-        gap: 10px;
+        gap: 5px;
         padding: 10px;
         overflow:hidden;
     }
@@ -122,26 +132,31 @@
         grid-area: "main";
 
         display: grid;
-        grid-template-rows: 25% auto;
-        gap: 1%;
-        background-color: #f12a11;
+        grid-template-rows: 30% 70%;
     }
 
-    .mContent .Logo{
+    /*.mContent .Logo{
         grid-area: "logo";
-        background-color: #f12a11;
+        background-color: var(--orangered);
 
+    }*/
+
+    .tText{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
     }
+    
     .mContent .Links{
         grid-area: "links";
-        background-color: #f12a11;
+
+        font-size: 20px;
 
     }
     
     .projectFrame{
         grid-area: "project";
         text-align: center;
-        background-color: aqua;
         display: block;
 
         text-align: center;
@@ -159,26 +174,25 @@
 
         text-align: center;
 
-        background-color: aqua;
-
         margin-top: 10%;
+
+        height: fit-content;
+
     }
 
     .aboutFrame .abMainFrame{
         width: auto;
         height:90%;
-        background-color: red;
 
         display: flex;
-        justify-content: center;
-        align-items: center;
-        column-gap:15px
+        flex-direction: column;
+
+        align-items:center;
     }
 
     .aboutFrame .abMainFrame .textFrames{
-        width: 40%; 
+        width: 50%; 
         height: 90%; 
-        background-color:antiquewhite;
 
         display: flex;
         justify-content: center;
@@ -186,29 +200,146 @@
         word-spacing: 5px;
         line-height: 1.8;
         white-space: wrap;
+        text-decoration: underline;
+
+        -webkit-text-underline-position: under;
+        -ms-text-underline-position: below;
+        text-underline-position: under; 
+
+        justify-self: center;
+
+        margin-top: 50px;
     }
 
     .contactFrame{
         grid-area: "contact";
         text-align: center;
-        background-color: aqua;
 
         text-align: center;
-        text-decoration: underline #f12a11;
-
+        
         margin-top: 10%;
+
+        display: flex;
+
+        flex-direction: column;
+        align-items:center;
     }
 
-    .footerFrame{
-        grid-area: "footer";
-        text-align: center;
-        background-color: aqua;
+    .contactFrame .cFMain{
+        background-color: rgb(34, 34, 34);
+
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: 70% 10% auto;
+    }
+
+    .contactFrame .cFMain .CFmEmailFrame{
+
+        width: 90%;
+        height: 90%;
+
+        display: grid;
+        grid-template-rows: 5% 50% auto;
+
+        justify-self: center;
+        align-self: center;
+
+        border: 1px solid var(--orangered);
+        border-radius: 0px 0px 21px 21px;
+    }
+
+    
+    .contactFrame .cFMain .CFmEmailFrame span{
+
+        color:white;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+
+    .contactFrame .cFMain .CFmEmailFrame .EmailEntry{
+        width: 100%;
+        height: 100%;
+    }
+
+    .contactFrame .cFMain .CFmEmailFrame .EmailUserContactFrame{
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .contactFrame .cFMain .linksFrame{
+        width: 90%;
+        height: 90%;
+        
+        justify-self: center;
+        align-self: center;
+
+    }
+
+    .contactFrame .cFMain .linksFrame a{
+        font-size: 30px;
+
+    }
+    
+    .Input{
+        width: 100%;
+        height: 100%;
+    }
+
+    .contactEntry{
+        border: none;
+        border-bottom: 2px solid var(--orangered);
+        background: none;
+        text-align: left; 
+        padding: 0 0 0 2px;
+
+        color: rgb(75, 75, 75);
+    }
+
+    .contactEntry:focus{
+        outline-width: 0;
+    }
+
+    .contactEntry:focus::placeholder{
+        color: transparent;
+    }
+
+    .emailSubmit{
+        background-color: var(--orangered);
+        border: none ;
+        border-radius: 0px 0px 20px 20px;
+        color: #fff;
+        cursor: pointer;
+        
+        position: relative;
+        overflow: hidden; 
+        
+        background-position: center;
+        transition: background 0.8s;
+    }
+
+    .emailSubmit:hover{
+        background:  radial-gradient(circle, transparent 1%, rgb(34, 34, 34) 1%) center/15000%;
+    }
+
+    .emailSubmit:active {
+        background-color: var(--orangered);
+        background-size: 100%;
+        transition: background 0s;
     }
 
 </style>
 
 <body>
-    <div class="mainBody">
+    <!--<div id="loadingscreen" class="loadingFrame"></div>-->
+
+    <div class="mainBody" style="display: grid;">
         <div id="header"></div>
         <div class="mainFrame">
             <div class="mFrameIMG">
@@ -227,15 +358,24 @@
                     <div class="Text">
 
                         <div class="Title">
-                            <h1>LeMustache</h1>
+                            <h1 class="fadein-rigth">LeMustache</h1>
+                            <!--<ul class="dynamic-txts">
+                                <li><span>LeMustache</span></li>
+                                <li><span>Programmer</span></li>
+                                <li><span>Developer</span></li>
+                                <li><span>IDK</span></li>
+                              </ul>-->
                         </div>
-                        <div class="Text">
-                            <p class="p2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure, reprehenderit dolor quis necessitatibus officia sunt sapiente esse quibusdam consequatur, ea nam placeat aperiam eligendi architecto voluptatibus magni laboriosam illo.</p>
+
+                        <div class="tText">
+                            <h4 class="fadein-rigth delay-1">💻Lorem, ipsum.</h4>
+                            <h4 class="fadein-rigth delay-2">🎥Lorem ipsum dolor sit.</h4>
+                            <h4 class="fadein-rigth delay-3">🔌Lorem, ipsum dolor.</h4>
                         </div>
 
                     </div>
-                    <div class="Logo"></div>
-                    <div class="Links">
+                    <!--<div class="Logo"><img src="assets/undraw_dev_focus_re_6iwt.svg" style="width:100%;height:100%"></div>-->
+                    <div class="Links fade delay-4">
                         <a href="#"><ion-icon name="logo-github"></ion-icon></a>
                         <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
                         <a href="#"><ion-icon src="assets/Patreon_logo.svg"></ion-icon></a>
@@ -245,36 +385,60 @@
         </div>
 
         <div class="projectFrame">
-            <h3 style="text-decoration: underline #f12a11;">Projects</h3>
+            <h3 class="fade">Projects</h3>
             <div style="width: 100%; height: auto;" class="sliderFrame">
                 <div id="slider"></div>
             </div>
         </div>
 
-        <div class="aboutFrame">
+        <div class="aboutFrame fade">
             <span></span>
-            <h3 style="text-decoration: underline #f12a11;">About Me</h3>
+            <h3 class="fade">About Me</h3>
             <span></span>
             <span></span>
             <div class="abMainFrame">
                 <div class="textFrames">
-                    <p class="p2" style="text-decoration: underline #000;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure, reprehenderit dolor quis necessitatibus officia sunt sapiente esse quibusdam consequatur, ea nam placeat aperiam eligendi architecto voluptatibus magni laboriosam illo.</p>
+                    <p class="p2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure, reprehenderit dolor quis necessitatibus officia sunt sapiente esse quibusdam consequatur, ea nam placeat aperiam eligendi architecto voluptatibus magni laboriosam illo.</p>
                 </div>
-                <div class="textFrames" style="text-decoration: underline #000;">
+                <!--<div class="textFrames" style="text-decoration: underline #000;">
                     <p class="p2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel quibusdam explicabo eligendi debitis aliquid hic nesciunt nihil ratione qui blanditiis distinctio sunt vitae harum minima autem, repudiandae veniam molestias ex!</p>
-                </div>
+                </div>-->
             </div>
             <span></span>
         </div>
 
         <div class="contactFrame">
             <h3>Contact</h3>
+            <div class="cFMain">
+                <div class="CFmEmailFrame">
+                    <span>Email</span>
+                    <div class="EmailEntry"><textarea  class="Input contactEntry" placeholder="Enter Email" type="text"></textarea></div>
+                    <div class="EmailUserContactFrame">
+                        <span>Name</span>
+                        <div class="input"><input class="Input contactEntry" placeholder="Enter Name" type="text"></div>
+                        <span>Email Address</span>
+                        <div class="input"><input class="Input contactEntry" placeholder="Enter Email Address" type="email"></div>
+                        <span>Subject</span>
+                        <div class="input"><input class="Input contactEntry" placeholder="Enter Subject" type="text"></div>
+                        <div><button class="Input emailSubmit">Send Email</button></div>
+                    </div>
+                </div>
+                <div class="linksFrame">
+                    <a href="#"><ion-icon name="logo-twitter" style="float: left;"></ion-icon></a>
+                </div>
+            </div>
         </div>
 
         <div id="footer" class="footerFrame"></div>
-        <!--<canvas id="canvas1" style="width: 100%;height: 100%;display: block;position: fixed;top: 0;left: 0;z-index: -9999;"></canvas>
+       <!--<canvas id="canvas1" style="width: 100%;height: 100%;display: block;position: fixed;top: 0;left: 0;z-index: -9999;"></canvas>
         <script src="js/bgAnimation.js"></script>-->
     </div>
+
+
+    <!--<script src="js/loadingScreen.js"></script>-->
+
+    <script src="js/playonscroll.js"></script>
+
 </body>
 
 </html>
