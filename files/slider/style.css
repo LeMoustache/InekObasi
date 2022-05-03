@@ -159,4 +159,5 @@ section .card .image img{
   color: #ff4500;
 }
 
-.animation{transition: all 0.3s ease;}
+.slide{transition: all 0.3s ease;}
+  
