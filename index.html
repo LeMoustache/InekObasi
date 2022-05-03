@@ -1,9 +1,40 @@
 <!DOCTYPE html>
-<!-- === Coding by CodingLab | www.codinglabweb.com === -->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>LeMustache</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=yes, viewport-fit=cover">
+
+    <script src="https://kit.fontawesome.com/e51de850ab.js" crossorigin="anonymous"></script>    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="shortcut icon" href="#"/>
+
+<!------------------------HEADER & FOOTER LOAD--------------------------------------------------------------------------------------------->
+
+    <link rel="stylesheet" type="text/css" href="files/style.css" media=”screen” />
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    </script>
+
+    <script> 
+        $(function(){
+            $("#loadingscreen").load("loading.html"); 
+            $("#header").load("header.html"); 
+            $("#slider").load("slider.html"); 
+            $("#footer").load("footer.html"); 
+        });
+    </script> 
+
+<!----------------------ANIMATION SCRIPTS----------------------------------------------------------------------------------------------->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!----------------------------ICONS----------------------------------->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <!-- ===== Link Swiper's CSS ===== -->
     <link rel="stylesheet" href="files/slider/bundle.min.css"/>
@@ -12,181 +43,400 @@
     <link rel="stylesheet" href="files/slider/all.min.css"/>
         
     <!-- ===== CSS ===== -->
-    <link rel="stylesheet" href="files/slider/style.css">
-    
-    <!--<title>Card with Sliding Feature</title>-->
+    <link rel="stylesheet" href="flies/slider/style.css">
+
 </head>
-<body>
 
-  <section>
+<style>
+    @import url(files/style.css);
+    @import url(files/mainFrameTitle.css);
+    @import url(files/animations.css);
+
+    .mainBody{
+        width: 100%;
+        height: 100%;
+
+        display: none;
+        grid-template-columns: auto;
+        grid-template-rows: auto 100vh 90vh auto 125vh 50vh;
+        grid-template-areas: 
+        "header"
+        "main"
+        "project"
+        "about"
+        "contact"
+        "footer"
+        ;
+    }
+
+    h3{
+        text-decoration: underline var(--orangered);
+
+        -webkit-text-underline-position: under;
+        -ms-text-underline-position: below;
+        text-underline-position: under; 
+    }
+
+    .mainFrame{
+        grid-area: "main";
+        display: block;
+        
+        width: clamp(100vw,50vw,100vw);
+        height: clamp(100vh,60vh,60vh);
+
+        aspect-ratio: 1/1;
+    }
+
+    .mFrameIMG{
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mainFrame::after{
+        content:"";
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        filter: blur(1px);
+        background-image: url(assets/LeMustacheBGphone.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+    .mContent{
+        width: 95%;
+        height: 80%;
+        z-index: 2;
+
+        display: grid;
+        grid-template-rows: 50% auto 30%; 
+        grid-template-areas:
+            "main"
+            "main"
+            "links";
+
+        gap: 5px;
+        padding: 10px;
+        overflow:hidden;
+    }
+
+    .mContent .Text{
+        grid-area: "main";
+
+        display: grid;
+        grid-template-rows: 30% 70%;
+    }
+
+    /*.mContent .Logo{
+        grid-area: "logo";
+        background-color: var(--orangered);
+
+    }*/
+
+    .tText{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
     
-    <div class="swiper mySwiper container">
-      <div class="swiper-wrapper content">
+    .mContent .Links{
+        grid-area: "links";
 
-        <div class="swiper-slide card">
-            <div class="card-content">
-              <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
-              </div>
-  
+        font-size: 20px;
 
-  
-              <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
-              </div>
-              <div class="button">
-                  <button class="aboutMe slide">About Me</button>
-              </div>
-                
-              <div class="rating">
-  
-              </div>
-  
+    }
+    
+    .projectFrame{
+        grid-area: "project";
+        text-align: center;
+        display: block;
+
+        text-align: center;
+
+        margin-top: 10%;
+    }
+
+    .aboutFrame{
+        grid-area: "about";
+
+        display: grid;
+        grid-template-columns: 10% 80% 10%;
+        grid-template-rows: 10% 90%;
+        row-gap: 4px;
+
+        text-align: center;
+
+        margin-top: 10%;
+
+        height: fit-content;
+
+    }
+
+    .aboutFrame .abMainFrame{
+        width: auto;
+        height:90%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items:center;
+    }
+
+    .aboutFrame .abMainFrame .textFrames{
+        width: 50%; 
+        height: 90%; 
+
+        display: flex;
+        justify-content: center;
+
+        word-spacing: 5px;
+        line-height: 1.8;
+        white-space: wrap;
+        text-decoration: underline;
+
+        -webkit-text-underline-position: under;
+        -ms-text-underline-position: below;
+        text-underline-position: under; 
+
+        justify-self: center;
+
+        margin-top: 50px;
+    }
+
+    .contactFrame{
+        grid-area: "contact";
+        text-align: center;
+
+        text-align: center;
+        
+        margin-top: 10%;
+
+        display: flex;
+
+        flex-direction: column;
+        align-items:center;
+    }
+
+    .contactFrame .cFMain{
+        background-color: rgb(34, 34, 34);
+
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: 70% 10% auto;
+    }
+
+    .contactFrame .cFMain .CFmEmailFrame{
+
+        width: 90%;
+        height: 90%;
+
+        display: grid;
+        grid-template-rows: 5% 50% auto;
+
+        justify-self: center;
+        align-self: center;
+
+        border: 1px solid var(--orangered);
+        border-radius: 0px 0px 21px 21px;
+    }
+
+    
+    .contactFrame .cFMain .CFmEmailFrame span{
+
+        color:white;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+    }
+
+    .contactFrame .cFMain .CFmEmailFrame .EmailEntry{
+        width: 100%;
+        height: 100%;
+    }
+
+    .contactFrame .cFMain .CFmEmailFrame .EmailUserContactFrame{
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .contactFrame .cFMain .linksFrame{
+        width: 90%;
+        height: 90%;
+        
+        justify-self: center;
+        align-self: center;
+
+    }
+
+    .contactFrame .cFMain .linksFrame a{
+        font-size: 30px;
+
+    }
+    
+    .Input{
+        width: 100%;
+        height: 100%;
+    }
+
+    .contactEntry{
+        border: none;
+        border-bottom: 2px solid var(--orangered);
+        background: none;
+        text-align: left; 
+        padding: 0 0 0 2px;
+
+        color: rgb(75, 75, 75);
+    }
+
+    .contactEntry:focus{
+        outline-width: 0;
+    }
+
+    .contactEntry:focus::placeholder{
+        color: transparent;
+    }
+
+    .emailSubmit{
+        background-color: var(--orangered);
+        border: none ;
+        border-radius: 0px 0px 20px 20px;
+        color: #fff;
+        cursor: pointer;
+        
+        position: relative;
+        overflow: hidden; 
+        
+        background-position: center;
+        transition: background 0.8s;
+    }
+
+    .emailSubmit:hover{
+        background:  radial-gradient(circle, transparent 1%, rgb(34, 34, 34) 1%) center/15000%;
+    }
+
+    .emailSubmit:active {
+        background-color: var(--orangered);
+        background-size: 100%;
+        transition: background 0s;
+    }
+
+</style>
+
+<body>
+    <!--<div id="loadingscreen" class="loadingFrame"></div>-->
+
+    <div class="mainBody" style="display: grid;">
+        <div id="header"></div>
+        <div class="mainFrame">
+            <div class="mFrameIMG">
+                <canvas id="mFCanvas" style="z-index:2;position: absolute;top: 35%;left: 50%;transform: translate(-50%, -50%);"></canvas>
+                <script src="js/mFAnimation.js.js"></script>
+                <script id="canvasPosition">
+                var canvas = document.querySelector('canvas');
+
+                    canvas.style.width ='100%';
+                    canvas.style.height='100%';
+                        // ...then set the internal size to match
+                    canvas.width  = canvas.offsetWidth;
+                    canvas.height = canvas.offsetHeight;
+                </script>
+                <div class="mContent">
+                    <div class="Text">
+
+                        <div class="Title">
+                            <h1 class="fadein-rigth">LeMustache</h1>
+                            <!--<ul class="dynamic-txts">
+                                <li><span>LeMustache</span></li>
+                                <li><span>Programmer</span></li>
+                                <li><span>Developer</span></li>
+                                <li><span>IDK</span></li>
+                              </ul>-->
+                        </div>
+
+                        <div class="tText">
+                            <h4 class="fadein-rigth delay-1">💻Lorem, ipsum.</h4>
+                            <h4 class="fadein-rigth delay-2">🎥Lorem ipsum dolor sit.</h4>
+                            <h4 class="fadein-rigth delay-3">🔌Lorem, ipsum dolor.</h4>
+                        </div>
+
+                    </div>
+                    <!--<div class="Logo"><img src="assets/undraw_dev_focus_re_6iwt.svg" style="width:100%;height:100%"></div>-->
+                    <div class="Links fade delay-4">
+                        <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="#"><ion-icon src="assets/Patreon_logo.svg"></ion-icon></a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="swiper-slide card">
-            <div class="card-content">
-              <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
-              </div>
-  
+        </div>
 
-  
-              <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
-              </div>
-              <div class="button">
-                  <button class="aboutMe slide">About Me</button>
-              </div>
-                
-              <div class="rating">
-  
-              </div>
-  
+        <div class="projectFrame">
+            <h3 style="opacity:0;" class="onScroll">Projects</h3>
+            <div style="width: 100%; height: auto;" class="sliderFrame">
+                <div id="slider" class="delay-1 onScroll"></div>
             </div>
-          </div>
-          <div class="swiper-slide card">
-            <div class="card-content">
-              <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
-              </div>
-  
+        </div>
 
-  
-              <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
-              </div>
-              <div class="button">
-                  <button class="aboutMe  slide">About Me</button>
-              </div>
-                
-              <div class="rating">
-  
-              </div>
-  
+        <div class="aboutFrame">
+            <span></span>
+            <h3 style="opacity:0;" class="onScroll">About Me</h3>
+            <span></span>
+            <span></span>
+            <div class="abMainFrame">
+                <div class="textFrames">
+                    <p style="opacity:0;"class="delay-1 onScroll p2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure, reprehenderit dolor quis necessitatibus officia sunt sapiente esse quibusdam consequatur, ea nam placeat aperiam eligendi architecto voluptatibus magni laboriosam illo.</p>
+                </div>
+                <!--<div class="textFrames" style="text-decoration: underline #000;">
+                    <p class="p2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel quibusdam explicabo eligendi debitis aliquid hic nesciunt nihil ratione qui blanditiis distinctio sunt vitae harum minima autem, repudiandae veniam molestias ex!</p>
+                </div>-->
             </div>
-          </div>
-          <div class="swiper-slide card">
-            <div class="card-content">
-              <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
-              </div>
-  
+            <span></span>
+        </div>
 
-  
-              <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
-              </div>
-              <div class="button">
-                  <button class="aboutMe slide">About Me</button>
-              </div>
-                
-              <div class="rating">
-  
-              </div>
-  
+        <div class="contactFrame">
+            <h3>Contact</h3>
+            <div class="cFMain">
+                <div class="CFmEmailFrame">
+                    <span>Email</span>
+                    <div class="EmailEntry"><textarea  class="Input contactEntry" placeholder="Enter Email" type="text"></textarea></div>
+                    <div class="EmailUserContactFrame">
+                        <span>Name</span>
+                        <div class="input"><input class="Input contactEntry" placeholder="Enter Name" type="text"></div>
+                        <span>Email Address</span>
+                        <div class="input"><input class="Input contactEntry" placeholder="Enter Email Address" type="email"></div>
+                        <span>Subject</span>
+                        <div class="input"><input class="Input contactEntry" placeholder="Enter Subject" type="text"></div>
+                        <div><button class="Input emailSubmit">Send Email</button></div>
+                    </div>
+                </div>
+                <div class="linksFrame">
+                    <a href="#"><ion-icon name="logo-twitter" style="float: left;"></ion-icon></a>
+                </div>
             </div>
-          </div>
-          <div class="swiper-slide card">
-            <div class="card-content">
-              <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
-              </div>
-  
+        </div>
 
-  
-              <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
-              </div>
-              <div class="button">
-                  <button class="aboutMe slide">About Me</button>
-              </div>
-                
-              <div class="rating">
-  
-              </div>
-  
-            </div>
-          </div>
-          <div class="swiper-slide card">
-            <div class="card-content">
-              <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
-              </div>
-  
-
-  
-              <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
-              </div>
-              <div class="button">
-                  <button class="aboutMe slide">About Me</button>
-              </div>
-                
-              <div class="rating">
-  
-              </div>
-  
-            </div>
-          </div>
-
-      </div>
+        <div id="footer" class="footerFrame"></div>
+       <!--<canvas id="canvas1" style="width: 100%;height: 100%;display: block;position: fixed;top: 0;left: 0;z-index: -9999;"></canvas>
+        <script src="js/bgAnimation.js"></script>-->
     </div>
 
-    <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev slide"></div>
-      <div class="swiper-pagination"></div>
-  </section>
 
-  <!-- Swiper JS -->
-  <script src="files/slider/swiper-bundle.min.js"></script>
-
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      slidesPerGroup: 1,
-      loop: true,
-      loopFillGroupWithBlank: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
-
-  
+    <!--<script src="js/loadingScreen.js"></script>-->
+    <script src="js/onScroll.js"></script>
 
 </body>
+
 </html>
