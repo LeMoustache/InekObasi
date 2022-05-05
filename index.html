@@ -58,11 +58,12 @@
 
         display: none;
         grid-template-columns: auto;
-        grid-template-rows: auto 100vh 90vh auto 125vh 50vh;
+        grid-template-rows: auto 100vh 90vh 75vh 70vh 125vh 50vh;
         grid-template-areas: 
         "header"
         "main"
         "project"
+        "experience"
         "about"
         "contact"
         "footer"
@@ -163,9 +164,66 @@
         margin-top: 10%;
     }
 
+    .experienceFrame{
+        grid-area: "experience";
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        background:#ff6600;
+
+        /*border-radius: 10px 10px 10px 10px;*/
+    }
+
+    .experienceFrame .experienceContainer{
+        width: 100%;
+        height: 100%;
+    }
+
+    .experienceFrame .experienceContainer .experienceHolder{
+        width: 100%;
+        height: 20%;
+
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+
+        gap: 10px;
+    }
+
+    .experienceFrame .experienceContainer .experienceHolder .niveauPercentage{
+        width: 80%;
+        height: 20%;
+        background-color: antiquewhite;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        border-radius:10px 10px;
+    }
+
+    .experienceFrame .experienceContainer .experienceHolder .niveauPercentage .percentage{
+        width: 90%;
+        height: 90%;
+        background-color: var(--orangered);
+        margin-left: 1px;
+
+        border-radius:10px 10px;
+    }
+
     .aboutFrame{
         grid-area: "about";
 
+        display: flex;
+        justify-content: center;
+    }
+
+    .aboutFrame .aboutContainer{
         display: grid;
         grid-template-columns: 10% 80% 10%;
         grid-template-rows: 10% 90%;
@@ -173,13 +231,14 @@
 
         text-align: center;
 
-        margin-top: 10%;
-
         height: fit-content;
 
+        width: 100%;
+        height: 125%;
+        /*border-radius: 10px 10px 0px 0px;*/
     }
 
-    .aboutFrame .abMainFrame{
+    .aboutFrame .aboutContainer .abMainFrame{
         width: auto;
         height:90%;
 
@@ -190,7 +249,7 @@
     }
 
     .aboutFrame .abMainFrame .textFrames{
-        width: 50%; 
+        width: 75%; 
         height: 90%; 
 
         display: flex;
@@ -216,8 +275,6 @@
 
         text-align: center;
         
-        margin-top: 10%;
-
         display: flex;
 
         flex-direction: column;
@@ -231,7 +288,7 @@
         height: 100%;
 
         display: grid;
-        grid-template-rows: 70% 10% auto;
+        grid-template-rows: auto 70% 10% auto;
     }
 
     .contactFrame .cFMain .CFmEmailFrame{
@@ -390,25 +447,77 @@
             </div>
         </div>
 
+
         <div class="aboutFrame">
-            <span></span>
-            <h3 style="opacity:0;" class="onScroll">About Me</h3>
-            <span></span>
-            <span></span>
-            <div class="abMainFrame">
-                <div class="textFrames">
-                    <p style="opacity:0;"class="delay-1 onScroll p2">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure, reprehenderit dolor quis necessitatibus officia sunt sapiente esse quibusdam consequatur, ea nam placeat aperiam eligendi architecto voluptatibus magni laboriosam illo.</p>
+            <div class="aboutContainer">
+                <span></span>
+                <h3 style="opacity:0;" class="onScroll">About Me</h3>
+                <span></span>
+                <span></span>
+                <div class="abMainFrame">
+                    <div class="textFrames">
+                        <p style="opacity:0;"class="delay-1 onScroll p1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure, reprehenderit dolor quis necessitatibus officia sunt sapiente esse quibusdam consequatur, ea nam placeat aperiam eligendi architecto voluptatibus magni laboriosam illo.</p>
+                    </div>
+                    <!--<div class="textFrames" style="text-decoration: underline #000;">
+                        <p class="p2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel quibusdam explicabo eligendi debitis aliquid hic nesciunt nihil ratione qui blanditiis distinctio sunt vitae harum minima autem, repudiandae veniam molestias ex!</p>
+                    </div>-->
                 </div>
-                <!--<div class="textFrames" style="text-decoration: underline #000;">
-                    <p class="p2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel quibusdam explicabo eligendi debitis aliquid hic nesciunt nihil ratione qui blanditiis distinctio sunt vitae harum minima autem, repudiandae veniam molestias ex!</p>
-                </div>-->
+                <span></span>
             </div>
-            <span></span>
+        </div>
+
+        <div class="experienceFrame">
+            <h3>Experience</h3>
+            <div class="experienceContainer">
+                
+            <div class="experienceHolder">                    
+                    <div class="p1"><ion-icon name="logo-python"></ion-icon></div>
+                    
+                    <div class="niveauPercentage">
+                        <div class="percentage"></div>
+                    </div>
+                    
+                    <p class="p1" style="display: inline-block;">Senior</p>
+            </div>
+
+            <div class="experienceHolder">                    
+                <div class="p1"><ion-icon name="logo-javascript"></ion-icon></div>
+                <div class="niveauPercentage">
+                    <div class="percentage"></div>
+                </div>
+                <p class="p1" style="display: inline-block;">Senior</p>
+            </div>
+
+            <div class="experienceHolder">                    
+                <div class="p1"><ion-icon src="assets/1200px-Lua-Logo.svg"></ion-icon></div>
+                <div class="niveauPercentage">
+                    <div class="percentage"></div>
+                </div>
+                <p class="p1" style="display: inline-block;">Senior</p>
+            </div>
+
+            <div class="experienceHolder">                    
+                <div class="p1"><ion-icon name="code-slash"></ion-icon></div>
+                <div class="niveauPercentage">
+                    <div class="percentage"></div>
+                </div>
+                <p class="p1" style="display: inline-block;">Senior</p>
+            </div>
+
+            <div class="experienceHolder">                    
+                <div class="p1"><ion-icon name="logo-google"></ion-icon></div>
+                <div class="niveauPercentage">
+                    <div class="percentage"></div>
+                </div>
+                <p class="p1" style="display: inline-block;">Senior</p>
+            </div>
+
+            </div>
         </div>
 
         <div class="contactFrame">
-            <h3>Contact</h3>
             <div class="cFMain">
+                <h3>Contact</h3>
                 <div class="CFmEmailFrame">
                     <span>Email</span>
                     <div class="EmailEntry"><textarea  class="Input contactEntry" placeholder="Enter Email" type="text"></textarea></div>
