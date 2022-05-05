@@ -5,11 +5,8 @@
 }
 
 :root{
-  --orangered: #f12a11
-}
-
-.dsadas{
-  background-color: rgba(241, 43, 17, 0.356);
+  --orangered: #f12a11;
+  --percentage-percent: 0%;
 }
 
 body{font-family: Helvetica;margin:0;width: 100vw;height: 100vh;font-family: Helvetica;margin: 0;display: flex;}
