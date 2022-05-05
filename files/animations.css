@@ -11,8 +11,25 @@
   
 }
 
-.fadein-rigth{
+.fadein-rigth.appear{
     animation: fadein-rigth 2s ease-in-out forwards;
+}
+
+
+@keyframes fadein-rigth2 {
+    0%{
+        transform: translateX(-30%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+  
+}
+
+.fadein-rigth2{
+    animation: fadein-rigth2 2s ease-in-out forwards;
 }
 
 @keyframes fade {
@@ -29,8 +46,23 @@
     animation: fade 2.5s ease-in-out forwards;
 }
 
-.fade2{
+.onScroll.appear{
     animation: fade 1s ease-in-out forwards;
+}
+
+@keyframes width {
+    0%{
+        width: 0;
+    }
+
+    100%{
+        width: var(--percentage-percent);
+    }
+}
+
+.fadeWidth.appear{
+    animation: width 1s ease-in-out forwards;
+    animation-delay: 2s;
 }
 
 
@@ -50,6 +82,12 @@
     opacity: 0;
     animation-delay: 1s;
 }
+.delay-5 {    
+    opacity: 0;
+    animation-delay: 1.25s;
+}
+
+
 
 @keyframes projectAnim {
     0%{
@@ -68,4 +106,6 @@
     animation: projectAnim 2.5s ease-in-out forwards;
 }
 
-
+.slide.appear{
+    transition: all 0.3s ease;
+}
