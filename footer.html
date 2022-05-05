@@ -52,11 +52,6 @@
     .emailNewsletterSubmit{
         border:1px solid var(--orangered);background:var(--orangered);color:white; width: 50%;z-index: 1; cursor: pointer;
     }
-
-    .emailNewsletterSubmit:hover{
-        background: #e2280f
-    }
-
     
     .footerFrame span{
         width: 100%;
@@ -98,12 +93,12 @@
 
         background-color:#1a1a1a;    
 
-        color: white;
+        color: rgb(85, 85, 85);
     }
 
     .footerFrame .footerContentFrame .footerContent .footerContentFrames .footerTextTitleFrame a{
         width: fit-content;
-        color: white;
+        color: rgb(85, 85, 85);
         text-decoration: none;
     }
 
@@ -115,6 +110,30 @@
 
         display: grid;
         grid-template-columns: .5fr 2fr 1fr;
+    }
+
+    .emailNewsletterSubmit{
+        background-color: var(--orangered);
+        border: none ;
+        border-radius: 0px 0px 20px 20px;
+        color: #fff;
+        cursor: pointer;
+        
+        position: relative;
+        overflow: hidden; 
+        
+        background-position: center;
+        transition: background 0.8s;
+    }
+
+    .emailNewsletterSubmit:hover{
+        background:  radial-gradient(circle, transparent 1%, rgb(34, 34, 34) 1%) center/15000%;
+    }
+
+    .emailNewsletterSubmit:active {
+        background-color: var(--orangered);
+        background-size: 100%;
+        transition: background 0s;
     }
 </style>
 
