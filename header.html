@@ -119,7 +119,7 @@
       text-decoration: none;
       display: block;
     }
-    .show {display: block;}
+    .show {display: flex;}
 
     @media only screen and (max-width: 500px){
         .nav{
@@ -198,7 +198,7 @@
                 document.getElementById("dropbtn").innerHTML = "☰"
                 listOpen = true;
 
-                tl.to(myDropdown,.1,{display:'block'}).fromTo(myDropdown,1,{x:'0%'},{x:'100%',ease:Power2.easeOut})
+                tl.to(myDropdown,.1,{display:'flex'}).fromTo(myDropdown,1,{x:'0%'},{x:'100%',ease:Power2.easeOut})
               }
             }
             // Close the dropdown if the user clicks outside of it
