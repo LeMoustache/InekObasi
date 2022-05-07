@@ -26,135 +26,64 @@
         <div class="swiper-slide card">
             <div class="card-content">
               <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
+                <img src="assets/projectIMGs/1200px-HTML5_logo_and_wordmark.png" alt="">
               </div>
-  
-
   
               <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
+                <span class="name">Websites</span>
+                <span class="profession">Websites I've made</span>
               </div>
               <div class="button">
-                  <button class="aboutMe slide">About Me</button>
+                  <a href="lemustache.net/projects"><button class="aboutMe slide">More Information</button></a>
               </div>
                 
               <div class="rating">
-  
+              <ion-icon name="logo-html5"></ion-icon>
+              <ion-icon name="logo-css3"></ion-icon>
+              <ion-icon name="logo-javascript"></ion-icon>
               </div>
-  
             </div>
           </div>
+          
           <div class="swiper-slide card">
             <div class="card-content">
               <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
+                <img src="assets/projectIMGs/python.png" alt="">
               </div>
-  
-
-  
               <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
+                <span class="name">Pyhton Projects</span>
+                <span class="profession">Projects I've Made Using Python</span>
               </div>
               <div class="button">
-                  <button class="aboutMe slide">About Me</button>
-              </div>
-                
+                  <a href="lemustache.net/projects"><button class="aboutMe slide">More Information</button></a>
+              </div>   
               <div class="rating">
-  
+                <ion-icon name="logo-python"></ion-icon>
               </div>
-  
             </div>
           </div>
+
           <div class="swiper-slide card">
             <div class="card-content">
               <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
+                <img src="assets/projectIMGs/arduRasp.png" alt="">
               </div>
-  
-
-  
               <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
+                <span class="name">Arduino/Raspberry</span>
+                <span class="profession">Arduino & Raspberry Pi Projects I've Made</span>
               </div>
               <div class="button">
-                  <button class="aboutMe  slide">About Me</button>
+                  <a href="lemustache.net/projects"><button class="aboutMe  slide">More Information</button></a>
               </div>
                 
               <div class="rating">
-  
+                <ion-icon name="hardware-chip"></ion-icon>
               </div>
   
             </div>
           </div>
-          <div class="swiper-slide card">
-            <div class="card-content">
-              <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
-              </div>
-  
 
-  
-              <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
-              </div>
-              <div class="button">
-                  <button class="aboutMe slide">About Me</button>
-              </div>
-                
-              <div class="rating">
-  
-              </div>
-  
-            </div>
-          </div>
-          <div class="swiper-slide card">
-            <div class="card-content">
-              <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
-              </div>
-  
 
-  
-              <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
-              </div>
-              <div class="button">
-                  <button class="aboutMe slide">About Me</button>
-              </div>
-                
-              <div class="rating">
-  
-              </div>
-  
-            </div>
-          </div>
-          <div class="swiper-slide card">
-            <div class="card-content">
-              <div class="image">
-                <!--<img src="images/img4.jpg" alt="">-->
-              </div>
-  
-
-  
-              <div class="name-profession">
-                <span class="name">Someone Name</span>
-                <span class="profession">Web Developer</span>
-              </div>
-              <div class="button">
-                  <button class="aboutMe slide">About Me</button>
-              </div>
-                
-              <div class="rating">
-  
-              </div>
-  
-            </div>
-          </div>
 
       </div>
     </div>
@@ -169,21 +98,39 @@
 
   <!-- Initialize Swiper -->
   <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      spaceBetween: 30,
-      slidesPerGroup: 1,
-      loop: true,
-      loopFillGroupWithBlank: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
+    if ($(window).width() >= 500) {
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    }else{
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        slidesPerGroup: 1,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    }
   </script>
 
   
