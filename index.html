@@ -126,6 +126,7 @@
         gap: 5px;
         padding: 10px;
         overflow:hidden;
+
     }
 
     .mContent .Text{
@@ -151,7 +152,6 @@
         grid-area: "links";
 
         font-size: 20px;
-
     }
     
     .projectFrame{
@@ -223,17 +223,14 @@
     }
 
     .aboutFrame .aboutContainer{
-        display: grid;
-        grid-template-columns: 10% 80% 10%;
-        grid-template-rows: 10% 90%;
-        row-gap: 4px;
+        display: flex;
+        flex-direction: column;
 
         text-align: center;
 
         height: fit-content;
 
         width: 100%;
-        height: 125%;
         /*border-radius: 10px 10px 0px 0px;*/
     }
 
@@ -389,6 +386,32 @@
         transition: background 0s;
     }
 
+    @media screen and (min-width:500px) {
+        /*.aboutFrame .aboutContainer .abMainFrame{
+            display: flex;
+            flex-direction: row;
+
+            text-align: center;
+
+            height: fit-content;
+            align-self: center;
+            gap: 50px;
+
+            width: 90%;
+            height: 125%;
+            border-radius: 10px 10px 0px 0px;
+        }*/
+
+        .mContent{
+            width: 50%;
+
+            display: grid;
+            grid-template-rows: 50% 50% 30%; 
+            grid-template-columns: 50% 50%;
+            grid-auto-columns: auto;
+        }
+    }
+
 </style>
 
 <body>
@@ -411,9 +434,8 @@
                 </script>
                 <div class="mContent">
                     <div class="Text">
-
                         <div class="Title">
-                            <h1 class="fadein-rigth">LeMustache</h1>
+                            <h1 class="fadein-rigth2">LeMustache</h1>
                             <!--<ul class="dynamic-txts">
                                 <li><span>LeMustache</span></li>
                                 <li><span>Programmer</span></li>
@@ -423,17 +445,20 @@
                         </div>
 
                         <div class="tText">
-                            <h4 class="fadein-rigth2 delay-1">💻Lorem, ipsum.</h4>
-                            <h4 class="fadein-rigth2 delay-2">🎥Lorem ipsum dolor sit.</h4>
-                            <h4 class="fadein-rigth2 delay-3">🔌Lorem, ipsum dolor.</h4>
+                            <h4 class="fadein-rigth2 delay-1">💻Programmer.</h4>
+                            <h4 class="fadein-rigth2 delay-2">⚙️Engineer.</h4>
+                            <h4 class="fadein-rigth2 delay-3">💩Dumbass.</h4>
                         </div>
 
                     </div>
-                    <!--<div class="Logo"><img src="assets/undraw_dev_focus_re_6iwt.svg" style="width:100%;height:100%"></div>-->
+                    <div class="fade Logo pc" style="font-size:10px"><img src="assets/flame-792.png" style="width:auto;height:auto;max-height: 125%;">
+                        Illustration by<a href="https://icons8.com/illustrations/author/8EFXLhT3w7gp" target="_blank"> Maria Shukshina</a>
+                        <a href="https://icons8.com/illustrations/author/zD2oqC8lLBBA" target="_blank"> & Icons 8</a> from <a href="https://icons8.com/illustrations" target="_blank">Ouch!</a>
+                    </div>
                     <div class="Links fade delay-4">
-                        <a href="#"><ion-icon name="logo-github"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                        <a href="#"><ion-icon src="assets/Patreon_logo.svg"></ion-icon></a>
+                        <a href="https://github.com/LeMoustache" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                        <a href="https://twitter.com/LeMustache_1" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="https://www.patreon.com/LeMustache"><ion-icon src="assets/Patreon_logo.svg" target="_blank"></ion-icon></a>
                     </div>
                 </div>
             </div>
@@ -449,19 +474,26 @@
 
         <div class="aboutFrame">
             <div class="aboutContainer">
-                <span></span>
                 <h3 style="opacity:0;" class="onScroll">About Me</h3>
-                <span></span>
-                <span></span>
                 <div class="abMainFrame">
                     <div class="textFrames">
-                        <p class="p1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iure, reprehenderit dolor quis necessitatibus officia sunt sapiente esse quibusdam consequatur, ea nam placeat aperiam eligendi architecto voluptatibus magni laboriosam illo.</p>
+                        <p class="p1">I LeMustache am an amateur programmer and engineer.</p>
                     </div>
-                    <!--<div class="textFrames" style="text-decoration: underline #000;">
-                        <p class="p2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel quibusdam explicabo eligendi debitis aliquid hic nesciunt nihil ratione qui blanditiis distinctio sunt vitae harum minima autem, repudiandae veniam molestias ex!</p>
-                    </div>-->
+                    <div class="textFrames phone">
+                        <p class="p1">
+                            I have been programming for over 4+ years now, and have mostly worked on my simple projects as a hobby.
+                            I mostly make the UIs and the sound myself which I also find quite entertaining.
+                            But I haven't only done programming as a hobby, I've also teached others and done commisions on platforms such as Roblox. 
+                        </p>
+                    </div>
+                    <div class="textFrames pc">
+                        <p class="p1">
+                            I have been programming for over 4+ years now, and have mostly worked on my simple projects as a hobby.
+                            I mostly make the UIs and the sound myself which I also find quite entertaining.
+                            But I haven't only done programming as a hobby, I've also teached others and done commisions on platforms such as Roblox. 
+                        </p>
+                    </div>
                 </div>
-                <span></span>
             </div>
         </div>
 
@@ -529,7 +561,7 @@
                     </div>
                 </div>
                 <div class="linksFrame">
-                    <a href="#"><ion-icon name="logo-twitter" style="float: left;"></ion-icon></a>
+                    <a href="https://twitter.com/LeMustache_1" target="_blank"><ion-icon name="logo-twitter" style="float: left;"></ion-icon></a>
                 </div>
             </div>
         </div>
@@ -542,6 +574,7 @@
 
     <!--<script src="js/loadingScreen.js"></script>-->
     <script src="js/onScroll.js"></script>
+    <script src="js/remove-element.js"></script>
 
 </body>
 
