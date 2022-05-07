@@ -52,10 +52,20 @@ section{
 
 section .card .image{
   height: 10vh;
-  width: 40%;
+  width: 50%;
   border-radius: 50%;
   padding: 3px;
   background: #ff4500;
+}
+
+@media screen and (min-width:500px) {
+  section .card .image{
+    height: 10vh;
+    width: 30%;
+    border-radius: 50%;
+    padding: 3px;
+    background: #ff4500;
+  }
 }
 
 section .card .image img{
@@ -108,10 +118,12 @@ section .card .image img{
   display: flex;
   align-items: center;
   margin-top: 18px;
+
+  align-self: flex-start;
 }
 
 .card .rating i{
-  font-size: 18px;
+  font-size: 20px;
   margin: 0 2px;
   color: #ff4500;
 }
@@ -159,5 +171,4 @@ section .card .image img{
   color: #ff4500;
 }
 
-.slide{transition: all 0.3s ease;}
   
