@@ -113,6 +113,17 @@
       right: 0;
       z-index: 1;
     }
+
+    .dropdown-content .imgdiv{
+      background-image: linear-gradient(40deg, #f12a11,#f5af19);
+    }
+
+    .dropdown-content img {
+      max-width: 55px;
+      float: center;
+      margin: 5px 10px 0 0;
+    }
+
     .dropdown-content a {
       color: black;
       padding: 12px 16px;
@@ -152,7 +163,7 @@
 
   <header class="site-header">
         <div class="site-identity">
-          <a href="https://www.lemustache.net/"><img id="logo" src="../assets/leMoustache_Mustache3.png" alt="Logo"/></a>
+          <a href="https://www.lemustache.net"><img id="logo" src="../assets/leMoustache_Mustache3.png" alt="Logo"/></a>
           <h1 id="logoText">Le<span>Mustache</span></h1>
         </div>  
         <nav class="site-navigation">
@@ -166,7 +177,10 @@
         <div class="site-navigation dropdown">
           <button onclick="myFunction()" class="dropbtn" id="dropbtn">☰</button>
 
-          <div id="myDropdown" class="dropdown-content">
+          <div id="myDropdown" class="dropdown-content" style="display:inline;">
+            <div class="imgdiv">
+              <a href="https://www.lemustache.net"><img id="logo" src="../assets/leMoustache_Mustache3.png" alt="Logo" style="transform: matrix(1, 0, 0, 1, 0, 0);"></a>
+            </div>
             <a href="https://www.lemustache.net/#aboutFrame" id="about">About</a>
             <a href="https://www.lemustache.net/projects" id="projects">Projects</a>
             <a href="https://www.lemustache.net/#contactFrame" id="contact">Contact</a> 
@@ -198,7 +212,7 @@
                 document.getElementById("dropbtn").innerHTML = "☰"
                 listOpen = true;
 
-                tl.to(myDropdown,.1,{display:'flex'}).fromTo(myDropdown,1,{x:'0%'},{x:'100%',ease:Power2.easeOut})
+                tl.to(myDropdown,.1,{display:'inline'}).fromTo(myDropdown,1,{x:'0%'},{x:'100%',ease:Power2.easeOut})
               }
             }
             // Close the dropdown if the user clicks outside of it
