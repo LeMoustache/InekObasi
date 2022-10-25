@@ -101,7 +101,7 @@
     .dropdown {
       float: right;
       position: relative;
-      display: inline-block;
+      display: none;
     }
     .dropdown-content {
       display: none;
@@ -130,9 +130,13 @@
       text-decoration: none;
       display: block;
     }
-    .show {display: flex;}
+    .show {display: inline;}
 
     @media only screen and (max-width: 500px){
+        .dropdown{
+          display: inline-block;
+        }
+
         .nav{
             display: none;
         }
@@ -177,7 +181,7 @@
         <div class="site-navigation dropdown">
           <button onclick="myFunction()" class="dropbtn" id="dropbtn">☰</button>
 
-          <div id="myDropdown" class="dropdown-content" style="display:inline;">
+          <div id="myDropdown" class="dropdown-content">
             <div class="imgdiv">
               <a href="https://www.lemustache.net"><img id="logo" src="../assets/leMoustache_Mustache3.png" alt="Logo" style="transform: matrix(1, 0, 0, 1, 0, 0);"></a>
             </div>
