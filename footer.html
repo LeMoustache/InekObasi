@@ -26,6 +26,7 @@
 
         display: flex;
         justify-content: center;
+        justify-self: center;
     }
 
     .footerFrame .emailNewsletterFrame .EmailNewslatter{
@@ -135,6 +136,12 @@
         background-size: 100%;
         transition: background 0s;
     }
+
+    @media screen and (min-width:500px) {
+        .footerFrame .emailNewsletterFrame{
+            width: 50%;
+        }
+    }
 </style>
 
 <body>
@@ -142,8 +149,8 @@
         
         <div class="emailNewsletterFrame">
             <div class="EmailNewslatter">
-                <input class="Input" type="email" placeholder="Email Newsletter" style="flex-grow:2; border:none;">
-                <button class="Input emailNewsletterSubmit">Join</button>
+                <input id="emailNewsletterInput" class="Input" type="email" placeholder="Email Newsletter" style="flex-grow:2; border:none;">
+                <button id="emailNewsletterButton" class="Input emailNewsletterSubmit" onclick="addEmailNewsletter()">Join</button>
             </div>
         </div>
         
@@ -191,6 +198,47 @@
         </div>
 
     </footer>
+
+    <script>
+            function readTextFile(file, callback) {
+                var rawFile = new XMLHttpRequest();
+                rawFile.overrideMimeType("application/json");
+                rawFile.open("GET", file, true);
+                rawFile.onreadystatechange = function() {
+                    if (rawFile.readyState === 4 && rawFile.status == "200") {
+                        callback(rawFile.responseText);
+                    }
+                }
+                rawFile.send(null);
+            }
+
+            function addEmailNewsletter(){  
+                // gets buttons value
+                emailValue = document.getElementById("emailNewsletterInput").value
+
+                if (!emailValue == ""){ // checks if email is entered
+                    
+                    var re = /(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
+                    if (re.test(emailValue)){ // checks if email is valid
+
+                        fetch('http://LeMustache.net/emailNewsletter?mail='+emailValue,{
+                            method: "POST",
+                            headers: {'Content-Type':'application/json','Access-Control-Allow-Origin':'*'},
+                            body: JSON.stringify({email_address:emailValue})
+                        }).then(function(response){
+                            console.log(response)
+                            if (response.ok || response.status=="405"){
+                                alert("Thank You! A Confirmation Email Has Been Sent")
+                            }
+                        })
+
+                    }else{alert("Please Enter A Valid Email")}
+                }else{
+                    alert("Please Enter A Valid Email")
+                }
+            }
+
+    </script>
 </body>
 
 </html>
