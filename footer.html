@@ -170,19 +170,19 @@
                 </div>
                 <div class="footerTextContent footerContentFrames">
                     <div class="footerTextTitleFrame">
-                        <a href="https://www.lemustache.net/#aboutFrame">About</a>
-                        <a href="https://www.lemustache.net/projects">Projects</a>
-                        <a href="https://www.lemustache.net/#contactFrame">Contact</a>
+                        <a href="https://www.lemustache.net/#aboutFrame"><p>About</p></a>
+                        <a href="https://www.lemustache.net/projects"><p>Projects</p></a>
+                        <a href="https://www.lemustache.net/#contactFrame"><p>Contact</p></a>
                     </div>
                     <div class="footerTextTitleFrame">
-                        <a href="https://twitter.com/LeMustache_1">Twitter</a>
-                        <a href="https://github.com/LeMoustache">Github</a>
-                        <a href="https://www.lemustache.net/#contactFrame">Discord</a>
+                        <a href="https://twitter.com/LeMustache_1"><p>Twiter</p></a>
+                        <a href="https://github.com/LeMoustache"><p>Github</p></a>
+                        <a href="https://www.lemustache.net/#contactFrame"><p>Discord</p></a>
                     </div>
                     <div class="footerTextTitleFrame">
-                        <a href="https://www.lemustache.net/projects">Recent Project</a>
-                        <a href="https://www.lemustache.net/projects">Most Liked Project</a>
-                        <a href="https://www.lemustache.net/projects">Other Projects</a>
+                        <a href="https://www.lemustache.net/projects"><p>Recent Project</p></a>
+                        <a href="https://www.lemustache.net/projects"><p>Most Liked Project</p></a>
+                        <a href="https://www.lemustache.net/projects"><p>Other Projects</p></a>
                     </div>
                 </div>
             </div>
@@ -220,18 +220,18 @@
                     
                     var re = /(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
                     if (re.test(emailValue)){ // checks if email is valid
-                        alert("Thank You! A Confirmation Email Has Been Sent")
-                        /*
-                        fetch('http://LeMustache.net/emailNewsletter?mail='+emailValue,{
-                            method: "POST",
+
+                        fetch('https://lemustache.net/emailNewsletter?mail='+emailValue,{
+                            method: "GET",
                             headers: {'Content-Type':'application/json','Access-Control-Allow-Origin':'*'},
-                            body: JSON.stringify({email_address:emailValue})
                         }).then(function(response){
                             console.log(response)
-                            if (response.ok || response.status=="405"){
+                            if (response.ok){
                                 alert("Thank You! A Confirmation Email Has Been Sent")
-                            } 
-                        })*/
+                            }else{
+                                alert("There was an error sending the email, please try again later.")
+                            }
+                        })
 
                     }else{alert("Please Enter A Valid Email")}
                 }else{
