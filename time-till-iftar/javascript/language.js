@@ -1,7 +1,7 @@
 function translateAll(){
     lang = document.querySelector('input[name="lang"]:checked').value; // get translated name
 
-    $.getJSON("../database/languages.json",function(data){  // translate page (add: if not already translated)
+    $.getJSON("https://lemustache.net/time-till-iftar/database/languages.json",function(data){  // translate page (add: if not already translated)
 
         langChosen = data[lang]
 
