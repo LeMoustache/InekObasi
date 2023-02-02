@@ -142,6 +142,8 @@
     .titleButton button{
         border: none;
         background: none;
+
+        z-index: 3;
     }
 
     .quranRadioContainer{
@@ -154,6 +156,8 @@
 
     .QrRadioPlay{
         background: none;
+
+        z-index: 2;
     }
 
     .quranRadioContCntr{
@@ -273,6 +277,8 @@
 
         transition: 1s ease;
 
+        z-index: 3;
+
     }
 
     .reminderContainer button{
@@ -325,6 +331,8 @@
         height: 400px;
 
         color: white;
+
+        z-index: 2;
 
     }
 
@@ -743,7 +751,7 @@
                     
                     <div class="titleButton" style="display:flex;justify-content: center;">
                         <h3 id="surahTitleEng">Surah</h3>
-                        <button onclick="playSurah()" id="surahAudioButton">▶</button>
+                        <button onclick="playSurah()" id="surahAudioButton" class="surahAudioButton">▶</button>
                     </div>
 
                     <h2 id="surahTitleArb" class="otherTitles surahTitleArb">Surah</h2>
