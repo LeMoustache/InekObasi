@@ -983,7 +983,7 @@
                 var userLat = response.loc.split(",")[0]; // get visitor latitude from location
                 var userLong = response.loc.split(",")[1]; // get visitor longtitude from location
                 var userCity = response.city; 
-                var userTimeZone = response.timezone /
+                var userTimeZone = response.timezone
 
                 getPrayerTimes(userLat, userLong, userTimeZone, userCity)
             }, "json")
