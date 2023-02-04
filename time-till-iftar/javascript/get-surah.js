@@ -51,12 +51,15 @@ function playSurah(){
 
             surahAudio.loop();
             surahAudio.play();
+            playing = true
             
             surahAudio.addEventListener('ended', function() {
                 document.getElementById("surahAudioButton").innerHTML = "▶"
+                surahAudio.currentTime = 0; 
+                surahAudio.pause();
+                playing = false
             }, false);
 
-            playing = true
 
             document.getElementById("surahAudioButton").innerHTML = "||"
         }else{ // stop
