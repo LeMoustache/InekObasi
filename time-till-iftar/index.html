@@ -1009,9 +1009,15 @@
                         ezan.play(); // play ezan
                     }
 
+                    iftarTimeLang = {
+                        "eng":"IFTAR TIME",
+                        "tur":"İFTAR VAKTİ",
+                        "de":"IFTAR ZEIT"
+                    }
+
                     timesFired = 0
                     clearInterval(x); // reset timer
-                    document.getElementById("timer").innerHTML = "IFTAR TIME"; // change text to IFTAR VAKTI
+                    document.getElementById("timer").innerHTML = iftarTimeLang[document.querySelector('input[name="lang"]:checked').value]; // change text to IFTAR VAKTI
                 }else{
                     ezan.pause() 
                     ezan.currentTime = 0; // reset ezan sound
