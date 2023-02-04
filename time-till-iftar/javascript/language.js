@@ -79,6 +79,47 @@ languages = {
         "islamicnewyear":" Hicri Yılbaşı",
         "dayofashura":" Aşure Günü",
         "rabialawwal":" Mevlid Kandili"
+     },
+
+     "de" : {
+        "language":"de",
+        "time-till-iftar":"Zeit bis iftar",
+        "hadith":"Hadith",
+        "reminder-text":"Was hast du heute für Allah getan?",
+        "settings":"Einstellungen", 
+        "choose-language":"Sprache auswählen",
+        "choose-language-adhan":"Azan-Sprache auswählen",
+        "choose-city":"Stadt auswählen",
+        "save":"Speichern",
+        "ramadan-mubarak":"Frohen Ramadan",
+        "quran-radio":"Kuran Radio",
+        "islamic-dates":"Islamische Tage - 2023",
+
+        "26-january":"26 Januar:",
+        "17-february":"17 Februar:",
+        "6-march":"6 März:",
+        "23-march":"23 März:",
+        "17-april":"17 April:",
+        "20-april":"20 April:",
+        "21-23-april":"21-23 April:",
+        "27-june":"27 Juni:",
+        "28-june-1-july":"28 Juni - 1 Juli:",
+        "19-july":"19 Juli:",
+        "28-july":"28 Juli:",
+        "26-september":"26 September:",
+
+        "Laylatal-Raghaib":" Lailatu-l-Raghaib",
+        "AlIsra’walMi’raj":" Die Nacht der Himmelreise",
+        "Shab-e-Barat":" Die Nacht der Vergebung",
+        "Ramadan-begin":" Ramadan Anfang",
+        "LaylatulQadr":" Nacht der Bestimmung",
+        "EidalFitrEve":" Eid al-Fitr Vorabend",
+        "EidAlFitr":" Eid al-Fitr",
+        "dayofarafah":" Eid-al-Adha Vorabend",
+        "eidaladha":" Eid-al-Adha",
+        "islamicnewyear":" Hijri-Neujahr",
+        "dayofashura":" Aschura-Tag",
+        "rabialawwal":" Nacht der Geburt des Propheten"
      }
 }
 
