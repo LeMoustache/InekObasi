@@ -49,7 +49,13 @@ function playSurah(){
         if (playing==false){ // play
             surahAudio = new Audio(response.audio_file.audio_url);
 
+            surahAudio.loop();
             surahAudio.play();
+            
+            surahAudio.addEventListener('ended', function() {
+                document.getElementById("surahAudioButton").innerHTML = "▶"
+            }, false);
+
             playing = true
 
             document.getElementById("surahAudioButton").innerHTML = "||"
