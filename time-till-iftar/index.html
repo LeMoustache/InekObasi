@@ -998,11 +998,11 @@
                 var surpriseMe = returned[2]
 
                 if (surpriseMe){
-                    if (seconds==11){
+                    if (seconds==11 && minutes<=0){
                         countdownSound.play(); 
                     }
 
-                    if(seconds==5 && rand==0){
+                    if(seconds==5 && rand==0 && minutes<=0){
                         countdownSound.pause();
                         reklamSound.play()
                     }
