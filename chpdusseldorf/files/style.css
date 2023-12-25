@@ -1,0 +1,25 @@
+:root{
+  --kirmizi: #FF0000;
+  --beyaz: #FFFFFF;
+  --mavi: #002B6B;
+}
+
+@font-face {font-family: Gotham; src: url('files/fonts/Gotham-Book.otf');} 
+@font-face {font-family: GothamBold; src: url('files/fonts/Gotham-Bold.otf');}
+@font-face {font-family: GothamBoldItalic; src: url('files/fonts/Gotham-BoldItalic.otf');}
+@font-face {font-family: GothamMed; src: url('files/fonts/Gotham-Medium.otf');}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+  background: url("assets/body_bg.webp") top center no-repeat;
+  background-size: auto;
+  background-size: 100%;
+}
+
+
+  *{
+      font-family: Gotham;
+  }
