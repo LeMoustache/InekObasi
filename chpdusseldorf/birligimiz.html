@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <!--
+        
+        MADE BY LEMUSTACHE
+
+        lemustache.net
+        
+        
+        
+        --->
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHP Düsseldorf ve Çevresi</title>
+    
+    <link rel="stylesheet" type="text/css" href="files/style.css" media=”screen” />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!------------------------HEADER & FOOTER LOAD--------------------------------------------------------------------------------------------->
+    
+    <script src="jquery.js"></script> 
+
+    <script>
+        $(function(){
+            $(".headerFrame").load("header.html"); 
+            $(".footerFrame").load("footer.html"); 
+        });
+    </script> 
+    
+</head>
+
+<style>
+
+:root{
+  --kirmizi: #FF0000;
+  --beyaz: #FFFFFF;
+  --mavi: #002B6B;
+}
+
+@font-face {font-family: Gotham; src: url('files/fonts/Gotham-Book.otf');} 
+@font-face {font-family: GothamBold; src: url('files/fonts/Gotham-Bold.otf');}
+@font-face {font-family: GothamBoldItalic; src: url('files/fonts/Gotham-BoldItalic.otf');}
+@font-face {font-family: GothamMed; src: url('files/fonts/Gotham-Medium.otf');}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+  background: url("assets/body_bg.webp") top center no-repeat;
+  background-size: auto;
+  background-size: 100%;
+}
+
+
+  *{
+      font-family: Gotham;
+  }
+
+  
+    .mainBody{
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 20vh auto 10vh;
+        grid-template-areas: 
+        "header"
+        "main"
+        "footer"
+        ;
+
+        justify-items: center;
+
+        gap: 40px;
+    }
+
+    .mainFrame{
+        width: 90%;
+        height: 100%;
+        
+        display: flex;
+        flex-direction: column;
+        
+        align-items: center;
+
+        text-align: center;
+
+    }
+
+    .mFrame2{
+        margin-top: 50px;
+
+        width: 100%;
+        max-height: 80%;
+
+        display: grid;
+        grid-template-rows: 20%, 20%, 20%;
+        grid-template-columns: 20% 20% 20%;
+
+        justify-content: center;
+
+        gap: 40px;
+
+
+    }
+
+    .type{
+        width: 200px;
+        height: 275px;
+
+        background-color: var(--mavi);
+
+        border-radius: 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        color: white;
+        font-family: GothamBold;
+        margin-top: -10px;
+
+        background-size: cover;
+
+        text-decoration: none;
+    }
+
+    .type:hover{
+        opacity: .7;
+        cursor: pointer;
+    }
+
+    .uye{
+        width: 250px;
+        height: 250px;
+    }
+
+    .line2{
+        width: 50px;
+        height: 2px;
+        margin-right: 10px;
+        opacity: 0.4;
+        background-color: #161616;
+    }
+
+    @media screen and (max-width:815px) {
+        .mFrame2{
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .line2{
+            display: none;
+        }
+    }
+
+
+
+</style>
+
+
+<body>
+    <div class="mainBody">
+        <div class="headerFrame"></div>
+
+        <div class="mainFrame">
+            <h2 style="color: var(--mavi); font-family: GothamBold;">Birliğimiz</h2>
+            <div class="line2"></div>
+
+            <div class="mFrame2">
+                <div class="type">
+                    <div class="prsnImg" style="background-image: url(uyeler/baskan.jpg); width: 95%; height: 50%; background-size: cover; margin-top: 5px; border-radius: 10px 10px 0px 0px;"></div>
+                    
+                    <div class="prsnDetail" style="margin-top:-3px; height: 50%;">
+                        <h3 class="persnName">Ayfer Başlık</h3>
+                        <p style="margin-top:-15px;" >Başkan</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >+49 1723 232 23</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >email: ayfer@baslik.com</p>
+                    </div>
+                </div>
+
+                <div class="type">
+                    <div class="prsnImg" style="background-image: url(uyeler/baskan.jpg); width: 95%; height: 50%; background-size: cover; margin-top: 5px; border-radius: 10px 10px 0px 0px;"></div>
+                    
+                    <div class="prsnDetail" style="margin-top:-3px; height: 50%;">
+                        <h3 class="persnName">Sibel Cömert</h3>
+                        <p style="margin-top:-15px;" >Sekreter</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >+49 1723 232 23</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >email: ayfer@baslik.com</p>
+                    </div>
+                </div>
+
+                <div class="type">
+                    <div class="prsnImg" style="background-image: url(uyeler/baskan.jpg); width: 95%; height: 50%; background-size: cover; margin-top: 5px; border-radius: 10px 10px 0px 0px;"></div>
+                    
+                    <div class="prsnDetail" style="margin-top:-3px; height: 50%;">
+                        <h3 class="persnName">Mert Yavuz</h3>
+                        <p style="margin-top:-15px;" >Gençlik</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >+49 1723 232 23</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >email: ayfer@baslik.com</p>
+                    </div>
+                </div>
+
+                <div class="type">
+                    <div class="prsnImg" style="background-image: url(uyeler/baskan.jpg); width: 95%; height: 50%; background-size: cover; margin-top: 5px; border-radius: 10px 10px 0px 0px;"></div>
+                    
+                    <div class="prsnDetail" style="margin-top:-3px; height: 50%;">
+                        <h3 class="persnName">Meriç Yeşiloğlu</h3>
+                        <p style="margin-top:-15px;" >Halka İlişkiler</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >+49 1723 232 23</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >email: ayfer@baslik.com</p>
+                    </div>
+                </div>
+
+                <div class="type">
+                    <div class="prsnImg" style="background-image: url(uyeler/baskan.jpg); width: 95%; height: 50%; background-size: cover; margin-top: 5px; border-radius: 10px 10px 0px 0px;"></div>
+                    
+                    <div class="prsnDetail" style="margin-top:-3px; height: 50%;">
+                        <h3 class="persnName">Ayfer Başlık</h3>
+                        <p style="margin-top:-15px;" >Başkan</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >+49 1723 232 23</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >email: ayfer@baslik.com</p>
+                    </div>
+                </div>
+
+                <div class="type">
+                    <div class="prsnImg" style="background-image: url(uyeler/baskan.jpg); width: 95%; height: 50%; background-size: cover; margin-top: 5px; border-radius: 10px 10px 0px 0px;"></div>
+                    
+                    <div class="prsnDetail" style="margin-top:-3px; height: 50%;">
+                        <h3 class="persnName">Ayfer Başlık</h3>
+                        <p style="margin-top:-15px;" >Başkan</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >+49 1723 232 23</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >email: ayfer@baslik.com</p>
+                    </div>
+                </div>
+
+                <div class="type">
+                    <div class="prsnImg" style="background-image: url(uyeler/baskan.jpg); width: 95%; height: 50%; background-size: cover; margin-top: 5px; border-radius: 10px 10px 0px 0px;"></div>
+                    
+                    <div class="prsnDetail" style="margin-top:-3px; height: 50%;">
+                        <h3 class="persnName">Ayfer Başlık</h3>
+                        <p style="margin-top:-15px;" >Başkan</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >+49 1723 232 23</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >email: ayfer@baslik.com</p>
+                    </div>
+                </div>
+
+                <div class="type">
+                    <div class="prsnImg" style="background-image: url(uyeler/baskan.jpg); width: 95%; height: 50%; background-size: cover; margin-top: 5px; border-radius: 10px 10px 0px 0px;"></div>
+                    
+                    <div class="prsnDetail" style="margin-top:-3px; height: 50%;">
+                        <h3 class="persnName">Ayfer Başlık</h3>
+                        <p style="margin-top:-15px;" >Başkan</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >+49 1723 232 23</p>
+                        <p style="margin-top:-8px; font-size: 12px;" >email: ayfer@baslik.com</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <div class="footerFrame"></div>
+    </div>
+
+</body>
+</html>

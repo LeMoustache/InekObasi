@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    .headerFrame{
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .tpHeader{
+        width: 100%;
+        height: fit-content;
+
+        display: flex;
+        justify-content: center;
+
+        background-color: var(--mavi); 
+
+        z-index: 9999;
+    }
+
+    .tpHeaderFrame{
+        width: 75%; 
+        height: 52px; 
+        
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mHeader{
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+
+        margin-bottom: 10px;
+    }
+
+    .mHeaderFrame{
+        width: 80%; 
+        height: 100%; 
+        
+        display: flex; 
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .mHeaderLogos{
+        width: 20%;
+        height: 100%;
+
+        display: flex;
+
+        margin-top: 10px;
+    }
+
+    .mHeaderBttmL{
+        
+      display: flex;
+    }
+
+    .mHeaderLinks{
+        width: inherit;
+        height: 100%;
+    }
+
+
+    .headerLink{
+        font-style: none;
+        color: var(--mavi);
+        text-decoration: none;
+
+        margin-right: 10px;
+        font-size: 17px;
+    }
+
+    .katilLink{
+        color: var(--kirmizi);
+    }
+
+
+    .headerLink:hover{
+        color: var(--kirmizi);
+    }
+    
+    .katilLink:hover{
+        color: var(--beyaz);
+    }
+
+    .katilLink:visited{
+        color: var(--kirmizi);
+    }
+
+    .headerLink:visited{
+        color: var(--mavi);
+    }
+
+    .line{
+        width: 1px;
+        height: 20px;
+        margin-right: 10px;
+        opacity: 0.4;
+        background-color: #063d5d;
+    }
+
+    .line2{
+        width: 50px;
+        height: 2px;
+        margin-right: 10px;
+        opacity: 0.4;
+        background-color: #161616;
+    }
+
+    #menu{
+        display: none; /*  if bug !!!!!!!! */
+        opacity: 0;
+
+        width: 100%;
+        height: 0px;
+
+        position: absolute;
+
+        background-color: var(--beyaz);
+
+        flex-direction: column;
+
+        transition: opacity 2s ease-out;   
+        transition: height .3s ease-in;     
+    }
+
+    #menubtn{
+        display: none;
+
+        background-color: var(--beyaz);
+        box-shadow: 7px 7px 5px lightblue;
+        outline: none;
+        border: none;
+
+
+        width: 50px;
+        height: 50px;
+
+        z-index: 2;
+
+        border-radius: 5px;
+    }
+
+    @media screen and (max-width:815px) {
+        .tpHeaderFrame p{
+            display: none;
+        }
+
+        .mHeaderBttmL{
+            display: none;
+        }
+
+        #menubtn{
+            display: block;
+        }
+
+        #menu{
+            display: flex;
+        }
+    }
+
+    @media screen and (max-width:1200px) {
+        .mHeaderLogos{
+            display: none;
+        }
+    }
+  
+</style>
+
+<body>
+  <div class="tpHeader">
+    <div class="tpHeaderFrame">
+        <p style="color: var(--beyaz);">"Frieden in der Heimat, Frieden auf der Welt"</p>
+        <img src="assets/header-banner-img-3.png" style="height: 100%; display: relative;">
+    </div>
+</div>
+
+<div class="mHeader">
+    <div class="mHeaderFrame">
+        <div class="mHeaderLogos">
+            <div class="chplogo" style="background-image: url(assets/CHP-Dikey-Logo.jpg); min-width: 49%; min-height: 100%; background-size: contain; background-repeat: no-repeat;"></div>
+            <div class="duslogo" style="background-image: url(assets/chpduslogo.jpg); min-width: 49%; min-height: 100%; background-size: contain; background-repeat: no-repeat;"></div>
+        </div>
+
+        <div class="mHeaderLinks">
+            <div class="mHeaderTopL" style="height: 30%;">
+                <h2 style="font-family: GothamBold; color: var(--mavi);">CHP Düsseldorf ve Çevresi Birliği</h2>
+            </div>
+            <div class="mHeaderBttmL">
+                <a href="/index.html" class="headerLink">Ana Sayfa</a><div class="line"></div>
+                <!--<a href="chpdus.de/calismalarimiz" class="headerLink">Çalışmalarımız</a><div class="line"></div>-->
+                <a href="/birligimiz.html" class="headerLink">Birliğimiz</a><div class="line"></div>
+                <a href="/index.html#iletisim" class="headerLink">İletişim</a><div class="line"></div>
+                <a href="/bizekatil.html" class="headerLink katilLink">Bize Katıl</a>
+            </div>
+        </div>
+
+        <button onclick="openMenu()" id="menubtn">☰</button>
+
+        <script>
+            open = false
+
+            function openMenu(){
+                open = !open
+
+                if (!open){
+                    document.getElementById("menu").style.height = "350px";
+                    document.getElementById("menu").style.opacity = "1"
+                }else{
+                    document.getElementById("menu").style.height = "0px";
+                    document.getElementById("menu").style.opacity = "0"
+                }
+            }
+
+        </script>
+
+</div>
+
+<div id="menu">
+    <a href="/index.html" class="headerLink" style="margin-top: 20px; margin-left: 10px;">Ana Sayfa</a>
+    <div class="line2"></div>
+    <!--<a href="chpdus.de/calismalar" class="headerLink" style="margin-top: 20px; margin-left: 10px;">Çalışmalarımız</a>-->
+    <!--<div class="line2"></div>-->
+    <a href="/birligimiz.html" class="headerLink" style="margin-top: 20px; margin-left: 10px;">Birliğimiz</a>
+    <div class="line2"></div>
+    <a href="/index.html#iletisim" class="headerLink" style="margin-top: 20px; margin-left: 10px;">İletişim</a>
+    <div class="line2"></div>
+    <a href="/bizekatil.html" class="headerLink katilLink" style="margin-top: 20px; margin-left: 10px;">Bize Katıl ></a>
+    <div class="line2" style="margin-bottom: 20px;"></div>
+
+    <div style="display: flex;">
+        <div style="background-image: url(assets/CHP-Dikey-Logo.jpg); min-width: 100px; min-height: 100px; background-size: contain; background-repeat: no-repeat;"></div>
+        <div style="background-image: url(assets/chpduslogo.jpg); min-width: 100px; min-height: 100px; background-size: contain; background-repeat: no-repeat;"></div>
+    </div>
+</div>
+
+</div>
+
+
+
+</div>
+
+</body>
+
+</html>

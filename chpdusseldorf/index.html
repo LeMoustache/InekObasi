@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <!--
+        
+        MADE BY LEMUSTACHE
+
+        lemustache.net
+        
+        
+        
+        --->
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHP Düsseldorf ve Çevresi</title>
+    
+    <link rel="stylesheet" type="text/css" href="files/style.css" media=”screen” />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!------------------------HEADER & FOOTER LOAD--------------------------------------------------------------------------------------------->
+    
+    <script src="jquery.js"></script> 
+
+    <script>
+        $(function(){
+            $(".headerFrame").load("header.html"); 
+            $(".footerFrame").load("footer.html"); 
+        });
+    </script> 
+    
+</head>
+
+<style>
+
+:root{
+  --kirmizi: #FF0000;
+  --beyaz: #FFFFFF;
+  --mavi: #002B6B;
+}
+
+@font-face {font-family: Gotham; src: url('files/fonts/Gotham-Book.otf');} 
+@font-face {font-family: GothamBold; src: url('files/fonts/Gotham-Bold.otf');}
+@font-face {font-family: GothamBoldItalic; src: url('files/fonts/Gotham-BoldItalic.otf');}
+@font-face {font-family: GothamMed; src: url('files/fonts/Gotham-Medium.otf');}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+  background: url("assets/body_bg.webp") top center no-repeat;
+  background-size: auto;
+  background-size: 100%;
+}
+
+
+  *{
+      font-family: Gotham;
+      scroll-behavior: smooth;
+  }
+
+  
+    .mainBody{
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 20vh 60vh 45vh 30vh 70vh 10vh;
+        grid-template-areas: 
+        "header"
+        "main"
+        "gundem"
+        "bizekatil"
+        "iletisim"
+        "footer"
+        ;
+
+        justify-items: center;
+
+        gap: 40px;
+    }
+
+    .mainImgFrame{
+        width: 50%;
+        height: 100%;
+
+        margin-top: 10px;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imgFrame{
+        background-image: url(calismalar/placeholder.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .gundemFrame{
+        width: 65%;
+        height: 100%;
+    }
+
+    .iletisimFrame{
+        width: 100%;
+        height: 120%;
+
+
+
+        background-image: url(assets/bg-dus\ copy3.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .iletisimFrame .iletisim2{
+        display: flex;
+
+        margin-top: 10px;
+
+    }
+
+    .sosyalFrame{
+        width: 50%;
+        height: 30%;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        gap: 10px;
+        }
+
+    .sosyalFrame a:hover{
+        opacity: .7;
+    }
+
+    .bizeKatilFrame{
+        width: 50%;
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .bizeKatilFrame{
+        border-bottom: black solid 1px;
+        text-align: center;
+    }
+
+    .bizeKtlBttn{
+        display:flex;color:white;background-color:var(--kirmizi); width: 120px; height: 100px;  text-align: center; align-items: center; justify-content: center; text-decoration: none; border-radius: 10px;font-family: GothamBold;
+    }
+
+    @media screen and (max-width:800px) {
+        .iletisimMap{
+            display: none;
+        }
+    }
+
+    @media screen and (max-width:1200px) {
+        .mainImgFrame{
+            width: 95%;
+        }
+
+    }
+
+    @media screen and (max-width:515px) {
+        .bizeKtlBttn{
+            min-height: 75px;
+        }
+
+        .bizeKatilFrame{
+            border: none;
+        }
+    }
+
+    .line2{
+        width: 50px;
+        height: 2px;
+        margin-right: 10px;
+        opacity: 0.4;
+        background-color: #161616;
+    }
+
+</style>
+
+
+<body>
+    <div class="mainBody">
+        <div class="headerFrame"></div>
+
+        <div class="mainImgFrame">
+            <a href="#" style="height: 75%;width: 100%;"><div class="imgFrame"></div></a>
+            <!--<p class="calismaDate" style="margin-left: 10px;">02.04.2023</p>-->
+            <h2 class="calismaTitle" style="font-family: GothamBold; text-transform: capitalize; margin-left: 10px;">Hoş Geldin..!</h2>
+            <p class="calismaText" style="font-family: Gotham; margin-top: -15px; color: rgb(59, 59, 59); margin-left: 10px;">Sen de bize katıl ve yeni yüzyılda Türkiye'yi birlikte inşaa edelim!</p>
+        </div>
+
+        <div class="gundemFrame">
+            <!--<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/0ijGRc9EMsbCK7OLjK3xLP?utm_source=generator" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>-->
+
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/45xXZvUBRtn3wP2nnqYmf8?utm_source=generator" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+            <!--<iframe style="border-radius:12px" src="https://open.spotify.com/embed/show/45xXZvUBRtn3wP2nnqYmf8?utm_source=generator&theme=0" width="100%" height="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>-->
+        </div>
+
+        <div class="bizeKatilFrame">
+
+                <div style="display: flex; flex-direction: row; align-items: center; gap: 5px;">
+                    <h3 style="font-family: GothamBold;">Değişim </h3>
+                    <h3 style="font-family: GothamBold;"> Bizimle Mümkün!</h3>
+                </div>
+
+                <div class="line2" style="margin-bottom: 30px;"></div>
+
+                <a href="https://chat.whatsapp.com/JcBgaUdjlMnJKUiA54dzHh" target="_blank" class="bizeKtlBttn">BİZE KATIL!</a>
+                
+                <p>Geçmişin Mirasıyla Yeni Yüzyıl'da Umut, Huzur, Adalet Dolu</p>
+                <p style="margin-top: -10px;">Türkiye'yi Birlikte İnşaa Edelim!</p>
+                
+        </div>
+
+        <div class="iletisimFrame" id="iletisim">
+            <div class="sosyalFrame">
+                <h2 style="justify-self: center; color: var(--mavi);">Sosyal Medya Hesaplarımız</h2>
+    
+                <div class="hesapFrame" style="display: flex; flex-direction: row; gap:10px; justify-content: space-evenly; width: 100%;">
+                    <div class="Facebook" style="display: flex;flex-direction: column;justify-content: center; align-items: center;">
+                        <a href="https://www.facebook.com/chpbirligi?ref=embed_page" target="_blank" class="fa fa-facebook" style="display:flex;color:white;background-color:#3B5998; font-size: 30px;width: 75px; height: 75px;  text-align: center; align-items: center; justify-content: center; text-decoration: none; border-radius: 10px;"></a>
+                    </div>
+    
+                    <div class="Instagram" style="display: flex;flex-direction: column;justify-content: center; align-items: center;">
+                        <a href="https://www.instagram.com/chpdusseldorfcevresibirligi/" target="_blank" class="fa fa-instagram" style="display:flex;color:white;background-color:#dd4b39; font-size: 30px;width: 75px; height: 75px;  text-align: center; align-items: center; justify-content: center; text-decoration: none; border-radius: 10px;"></a>
+                    </div>
+    
+                    <div class="Twitter" style="display: flex;flex-direction: column;justify-content: center; align-items: center;">
+                        <a href="https://twitter.com/chp_birligi" target="_blank" class="fa fa-twitter" style="display:flex;color:white;background-color:#55ACEE; font-size: 30px;width: 75px; height: 75px;  text-align: center; align-items: center; justify-content: center; text-decoration: none; border-radius: 10px;"></a>
+                    </div>
+    
+                    <div class="whatsapp" style="display: flex;flex-direction: column;justify-content: center; align-items: center;">
+                        <a href="https://chat.whatsapp.com/JcBgaUdjlMnJKUiA54dzHh" target="_blank" class="fa fa-whatsapp" style="display:flex;color:white;background-color:#00a300; font-size: 30px;width: 75px; height: 75px;  text-align: center; align-items: center; justify-content: center; text-decoration: none; border-radius: 10px;"></a>
+                    </div>
+    
+                </div>
+            </div>
+
+
+            <div class="iletisim2" style="width: 50%; height: 50%;">
+                <div class="iletisimMap" style="width: 30%; height: 70%; margin-left: 10px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.2951244415067!2d6.773477699999999!3d51.489451499999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b8957d4760fbc7%3A0x613e2d343144a864!2sEmscherstra%C3%9Fe%20215%2C%2047166%20Duisburg!5e0!3m2!1sen!2sde!4v1703519238682!5m2!1sen!2sde" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+    
+                <div class="iletismDetails" style="margin-left: 25px; width: 60%; height: 70%;">
+                    <h2 style="color: var(--mavi); margin-left: 10px; font-family: Gotham;text-decoration: underline; margin-bottom:-10px ; text-shadow: rgb(255, 255, 255) 1px 0 10px;">İletişim</h2>
+                    <p style="margin-left: 10px; font-family: Gotham; margin-bottom: -10px; text-shadow: rgb(255, 255, 255) 1px 0 10px;">Pazartesi-Pazar: 13.00-17.00</p>
+                    <span></span>
+                    <p style="margin-left: 10px; font-family: Gotham; text-shadow: rgb(255, 255, 255) 1px 0 10px;">Emscherstr. 215 Duisburg</p>
+                    <span></span>
+                    <a  style="color: black;text-decoration: none;margin-left: 10px; font-family: Gotham;font-weight: 500; text-shadow: rgb(255, 255, 255) 1px 0 10px;" href="tel:+49 1575 4274895">Tel.: +49 1575 4274895</a><p></p>
+                    <a  style="color: black;text-decoration: none;margin-left: 10px; font-family: Gotham; margin-bottom: -10px;font-weight: 500; text-shadow: rgb(255, 255, 255) 1px 0 10px;" href="mailto:chpdusseldorfvecevresibirligi@gmail.com">Email: chpdusseldorfvecevresibirligi @gmail.com</a>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <div class="footerFrame"></div>
+    </div>
+
+</body>
+</html>
