@@ -148,7 +148,7 @@ html, body {
                 function readJson(calismalar){
                     console.log(calismalar["calismalar"][calismaId])
 
-                    document.getElementById("calismaImg").style.backgroundImage = "url(/calismalar/imgs/"+calismalar["calismalar"][calismaId]["img"]+")"
+                    document.getElementById("calismaImg").style.backgroundImage = "url(calismalar/imgs/"+calismalar["calismalar"][calismaId]["img"]+")"
                     document.getElementById("calismaDate").innerHTML = calismalar["calismalar"][calismaId]["date"]
                     document.getElementById("calismaTitle").innerHTML = calismalar["calismalar"][calismaId]["title"]
                     document.getElementById("calismaText").innerHTML = calismalar["calismalar"][calismaId]["text"]
