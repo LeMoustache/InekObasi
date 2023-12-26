@@ -99,9 +99,10 @@ html, body {
     }
 
     .imgFrame{
-        background-image: url(calismalar/placeholder.jpeg);
+        background-image: url(calismalar/placeholder.webp);
         background-size: cover;
         background-repeat: no-repeat;
+        background-position: center;
 
         width: 100%;
         height: 100%;
@@ -219,10 +220,10 @@ html, body {
         <div class="headerFrame"></div>
 
         <div class="mainImgFrame">
-            <a href="#" style="height: 75%;width: 100%;"><div class="imgFrame"></div></a>
-            <!--<p class="calismaDate" style="margin-left: 10px;">02.04.2023</p>-->
-            <h2 class="calismaTitle" style="font-family: GothamBold; text-transform: capitalize; margin-left: 10px;">Hoş Geldin..!</h2>
-            <p class="calismaText" style="font-family: Gotham; margin-top: -15px; color: rgb(59, 59, 59); margin-left: 10px;">Sen de bize katıl ve yeni yüzyılda Türkiye'yi birlikte inşaa edelim!</p>
+            <a href="#" style="height: 75%;width: 100%;"><div class="imgFrame" id="imgFrame"></div></a>
+            <p class="calismaDate" id="calismaDate" style="margin-left: 10px;">02.04.2023</p>
+            <h2 class="calismaTitle" id="calismaTitle" style="font-family: GothamBold; text-transform: capitalize; margin-left: 10px;margin-top: -10px;">Hoş Geldin..!</h2>
+            <p class="calismaText" id="calismaText" style="font-family: Gotham; margin-top: -15px; color: rgb(59, 59, 59); margin-left: 10px;">Sen de bize katıl ve yeni yüzyılda Türkiye'yi birlikte inşaa edelim!</p>
         </div>
 
         <div class="gundemFrame">
@@ -294,7 +295,30 @@ html, body {
         </div>
 
         <div class="footerFrame"></div>
+
+
+        <script>
+            fetch('calismalar/calismalar.json')
+                    .then((response) => response.json())
+                    .then((json) => readJson(json));
+
+                    
+                    function readJson(calismalar){
+                        i = calismalar["calismalar"].length - 1 
+
+                        document.getElementById("imgFrame").style.backgroundImage = "url(/calismalar/imgs/"+calismalar["calismalar"][i]["img"]+")"
+                        document.getElementById("calismaDate").innerHTML = calismalar["calismalar"][i]["date"]
+                        document.getElementById("calismaTitle").innerHTML = calismalar["calismalar"][i]["title"]
+                        document.getElementById("calismaText").innerHTML = calismalar["calismalar"][i]["summary"]
+  
+                    }
+
+        </script>
+
     </div>
 
 </body>
 </html>
+
+
+
