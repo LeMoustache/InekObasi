@@ -221,12 +221,12 @@ html, body {
                         // CREATE CALİŞMA ELEMENTS
 
                         calismaDiv = document.createElement("a")
-                        calismaDiv.href = "/calisma.html?"+[i]+"?"+calismalar["calismalar"][i]["title"]
+                        calismaDiv.href = "/calisma?"+[i]+"?"+calismalar["calismalar"][i]["title"]
                         calismaDiv.classList.add("calisma")
 
                         calismaImg = document.createElement("div")
                         calismaImg.classList.add("calismaImg")
-                        calismaImg.style.backgroundImage =  "url(/calismalar/imgs/"+calismalar["calismalar"][i]["img"]+")"
+                        calismaImg.style.backgroundImage =  "url(chpdusseldorf/calismalar/imgs/"+calismalar["calismalar"][i]["img"]+")"
                         calismaDiv.appendChild(calismaImg)
 
                         calismaDate = document.createElement("p")
