@@ -1,0 +1,24 @@
+{
+    "calismalar":[
+        {
+            "img":"genclikcalismalari.webp",
+            "date":"02.04.2023",
+            "title":"CHP NRW Birlikleri Gençlik Seçim Çalışmaları",
+            "text":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam rerum, magnam accusamus ducimus natus quos. Adipisci tempore aspernatur optio consequuntur aut. Fuga et iusto consectetur repellendus magnam temporibus sapiente ullam"
+        },
+        
+        {
+            "img":"placeholder.webp",
+            "date":"02.043.2023",
+            "title":"CHP NRW Birlikleri Gençlik Seçim Çalışmaları",
+            "text":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam rerum, magnam accusamus ducimus natus quos. Adipisci tempore aspernatur optio consequuntur aut. Fuga et iusto consectetur repellendus magnam temporibus sapiente ullam"
+        },
+
+        {
+            "img":"placeholder.webp",
+            "date":"02.043.2023",
+            "title":"CHP NRW Birlikleri Gençlik Seçim Çalışmaları",
+            "text":"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam rerum, magnam accusamus ducimus natus quos. Adipisci tempore aspernatur optio consequuntur aut. Fuga et iusto consectetur repellendus magnam temporibus sapiente ullam"
+        }
+    ]
+}
