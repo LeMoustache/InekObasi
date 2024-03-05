@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <title>LeMustache</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=yes, viewport-fit=cover">
+    
+        <script src="https://kit.fontawesome.com/e51de850ab.js" crossorigin="anonymous"></script>    
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="shortcut icon" href="#"/>
+    
+    <!------------------------HEADER & FOOTER LOAD--------------------------------------------------------------------------------------------->
+    
+        <link rel="stylesheet" type="text/css" href="files/style.css" media=”screen” />
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+        </script>
+
+    
+    <!----------------------ANIMATION SCRIPTS----------------------------------------------------------------------------------------------->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha512-0xrMWUXzEAc+VY7k48pWd5YT6ig03p4KARKxs4Bqxb9atrcn2fV41fWs+YXTKb8lD2sbPAmZMjKENiyzM/Gagw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha512-DkPsH9LzNzZaZjCszwKrooKwgjArJDiEjA5tTgr3YX4E6TYv93ICS8T41yFHJnnSmGpnf0Mvb5NhScYbwvhn2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!----------------------------ICONS----------------------------------->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    </head>
+
+<style>
+@import url(files/style.css);
+@import url(files/animations.css);
+
+.mainBody{
+        width: 100%;
+        height: 100%;
+
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto 20vh auto 50vh;
+        grid-template-areas: 
+        "header"
+        "top"
+        "main"
+        "footer";
+    }
+
+
+
+.topFrame{
+    grid-area: "top";
+    width: 100%;
+    height: 100%; 
+
+    background-image: url(assets/LeMustacheBackground.png);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    border-bottom: 1px orange solid;
+}
+
+.mainFrame{
+    justify-self: center;
+    width: 90%;
+}
+
+.homeworkHolder{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    align-self: center;
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.homework{
+    width: 100%;
+    min-height: 100px;
+    max-height: 200px;
+
+    display: flex;
+    flex-direction: row;
+
+    border-left: var(--orangered) 3px solid;
+
+    background-color: gainsboro;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    word-break:break-all;
+}
+
+.dateLessonHolder{
+    width: 30%;
+    margin-left: 5px;
+    margin-top: 10px;
+
+    display: inherit;
+    flex-direction: inherit;
+}
+
+.dateHolder{
+    width: 50%;
+}
+
+.lessonHolder{
+    width: 50%;
+}
+
+.detailsHolder{
+    width: 70%;
+    margin-top: 10px;
+
+    display: inherit;
+    flex-direction: inherit;
+}
+
+.taskHolder{
+    width: 40%;
+    margin-top: 10px;
+
+    display: flex;
+    gap: 10px;
+}
+
+.taskHolder a{
+    color:blue;
+}
+
+.notesHolder{
+    width: 30%;
+    margin-top: 10px;
+
+    overflow-y: scroll;
+}
+
+
+@media screen and (max-width:600px) {
+    .homework{
+        flex-direction: column;
+        align-items:center;
+    }
+
+    .dateLessonHolder{
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .taskHolder{
+        width: 100%;
+    }
+
+    .notesHolder{
+        width: 100%;
+    }
+}
+
+</style>
+
+<body>
+    <div class="mainBody">
+
+        <div class="header" id="header" style="grid-area: header;"></div>
+        <div class="topFrame"> 
+            <h2>Homework</h2>
+            <p>idk</p>
+        </div>
+
+        <div class="mainFrame">
+            <div class="homeworkHolder" id="homeworkHolder">
+
+                <!--<div class="homework" id="homework">
+                    <div class="dateLessonHolder">
+                        <div class="dateHolder" id="dateHolder">01.03</div>
+                        <div class="lessonHolder" id="lessonHolder"><p>French</p></div>
+                    </div>
+                    <div class="taskHolder"><a href="/homework/U3V3.pdf" target="_blank">U3V3</a></div>
+                    <div class="notesHolder" id="notesHolder"></div>    
+                </div>-->
+
+                <script>
+                    fetch('homework/homework.json')
+                        .then((response) => response.json())
+                        .then((json) => addHomework(json));
+
+                        function addHomework(homeworkJson){
+
+                            for (i = 0; i<homeworkJson["homework"].length; i++){
+
+
+                                tasks = homeworkJson["homework"][i]["tasks"]
+                                taskDesc = homeworkJson["homework"][i]["taskDesc"]
+
+                                homeworkDiv = document.createElement("div")
+                                homeworkDiv.classList.add("homework")
+                                homeworkDiv.setAttribute("id","homework")
+                                document.getElementById("homeworkHolder").appendChild(homeworkDiv)
+
+                                dateLessonDiv = document.createElement("div")
+                                dateLessonDiv.classList.add("dateLessonHolder")
+                                homeworkDiv.appendChild(dateLessonDiv)
+
+                                dateHolderDiv = document.createElement("div")
+                                dateHolderDiv.classList.add("dateHolder")
+                                dateHolderDiv.setAttribute("id","dateHolder")
+                                dateHolderDiv.innerHTML = homeworkJson["homework"][i]["date"]
+                                dateLessonDiv.appendChild(dateHolderDiv)
+
+                                lessonHolderDiv = document.createElement("div")
+                                lessonHolderDiv.classList.add("lessonHolder")
+                                lessonHolderDiv.setAttribute("id","lessonHolder")
+                                lessonHolderDiv.innerHTML = homeworkJson["homework"][i]["lesson"]
+                                dateLessonDiv.appendChild(lessonHolderDiv)
+
+                                taskHolderDiv = document.createElement("div")
+                                taskHolderDiv.classList.add("taskHolder")
+                                homeworkDiv.appendChild(taskHolderDiv)
+
+                                for (t=0;t<taskDesc.length;t++){
+                                    taskDiv = document.createElement("a")
+                                    taskDiv.setAttribute("href","homework/"+tasks[t])
+                                    taskDiv.innerHTML = taskDesc[t]
+                                    taskDiv.setAttribute("target","_blank")
+                                    taskHolderDiv.appendChild(taskDiv)
+                                }
+
+
+                                notesHolderDiv = document.createElement("div")
+                                notesHolderDiv.classList.add("notesHolder")
+                                notesHolderDiv.setAttribute("id","notesHolder")
+                                notesHolderDiv.innerHTML = homeworkJson["homework"][i]["notes"]
+                                homeworkDiv.appendChild(notesHolderDiv)
+
+                            }
+                        }
+
+
+                </script>
+                
+            </div>
+        </div>
+        
+        <div class="footerFrame" id="footer"></div>
+    </div>
+</body>
+
+</html>
+
