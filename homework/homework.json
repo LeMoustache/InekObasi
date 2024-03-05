@@ -1,0 +1,43 @@
+{
+    "homework":[
+        {
+            "date": "05.03 Di.",
+            "lesson": "Französisch",
+            "taskDesc":["Vokabeln U3V3"],
+            "tasks":["homework/U3V3.pdf"],
+            "notes": ""
+        },
+
+        {
+            "date": "06.03 Mit.",
+            "lesson": "Erdkunde",
+            "taskDesc":["p.15 B)"],
+            "tasks":["--"],
+            "notes": ""
+        },
+
+        {
+            "date": "06.03 Mit.",
+            "lesson": "Englisch",
+            "taskDesc":["continue the story from Amars perspective"],
+            "tasks":["homework/killinghonour.pdf"],
+            "notes": ""
+        },
+
+        {
+            "date": "08.03 Frei.",
+            "lesson": "Spanisch",
+            "taskDesc":["Bild vom letzte Urlaub mitbringen"],
+            "tasks":["--"],
+            "notes": ""
+        },
+
+        {
+            "date": "18.03 Mon.",
+            "lesson": "Englisch",
+            "taskDesc":["Novel","ZP10 WB"],
+            "tasks":["https://www.amazon.de/dp/3060359571?ref_=cm_sw_r_apan_dp_0FBC3PY049FM2JK2N8NF&language=en-GB","https://www.amazon.de/dp/3128350663?ref_=cm_sw_r_apan_dp_NFV7JG8MGEJE66K7SHTM&language=en-GB"],
+            "notes": ""
+        }
+    ]
+}
