@@ -1,27 +1,11 @@
 {
     "homework":[
         {
-            "date": "05.03 Di.",
-            "lesson": "Französisch",
-            "taskDesc":["Vokabeln U3V3"],
-            "tasks":["homework/U3V3.pdf"],
-            "notes": ""
-        },
-
-        {
-            "date": "06.03 Mit.",
-            "lesson": "Erdkunde",
-            "taskDesc":["p.15 B)"],
-            "tasks":["Erdp15.pdf"],
-            "notes": ""
-        },
-
-        {
-            "date": "06.03 Mit.",
-            "lesson": "Englisch",
-            "taskDesc":["continue the story from Amars perspective"],
-            "tasks":["homework/killinghonour.pdf"],
-            "notes": ""
+            "date": "07.03 Don.",
+            "lesson": "Chemie",
+            "taskDesc":["Test Notitzen PDF","Test Notitzen Goodnotes"],
+            "tasks":["sureflangen.pdf","sureflangen.goodnotes"],
+            "notes": "Im not taking any responsibility for the correction of the infos. Use at your own risk."
         },
 
         {
