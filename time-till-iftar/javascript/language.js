@@ -91,7 +91,7 @@ languages = {
         "choose-language-adhan":"Azan-Sprache auswählen",
         "choose-city":"Stadt auswählen",
         "save":"Speichern",
-        "ramadan-mubarak":"Frohen Ramadan",
+        "ramadan-mubarak":"Ramadan Mubarak",
         "quran-radio":"Kuran Radio",
         "islamic-dates":"Islamische Tage - 2023",
 
