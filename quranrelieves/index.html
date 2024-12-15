@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    *{  font-family: Arial, Helvetica, sans-serif;
+    }
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 0% 50%; /* Start position */
+        }
+        50% {
+            background-position: 100% 50%; /* Middle position */
+        }
+        100% {
+            background-position: 0% 50%; /* End position */
+        }
+    }
+
+    .mnBd{
+        width: 99vw;
+        height: 100vh;
+        position: relative;
+
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto 10svh;
+        grid-template-areas: 
+        "main"
+        "footer"
+        ;
+
+        justify-items: center;
+
+        gap: 20px;
+
+    }
+
+    .header{
+        width: 99%;
+        height: 100%;
+        margin-top: 10px;
+
+        display: grid; 
+        grid-template-columns: 20% 70% 10%; 
+        grid-template-rows: 1.3fr; 
+        gap: 5px; 
+        grid-template-areas: 
+            "logo searchbar other"; 
+
+        z-index: 2;
+
+    }
+
+    .hdLogo{
+        grid-area: logo;
+    }
+
+    .hdLogo .logoFrame{
+        width: 100%;
+        height: 100%;
+        background-image: url("logo3.webp");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        border-radius: 20rem;
+
+        align-self: center;
+
+    }
+
+    .hdSearchbar{
+        background-color: rgba(255, 255, 255, 0.952);
+        width: 90%;
+        max-width: 1000px;
+        height: 75%;
+
+        border-radius: 20rem;
+
+        -webkit-box-shadow: 0px 0px 21px -7px rgba(0,0,0,0.3); 
+        box-shadow: 0px 2px 4px rgba(0,0,0,.1);
+
+
+        grid-area: searchbar;
+
+        align-self: center;
+
+        display: grid; 
+        grid-template-columns: 10% 80% 10%; 
+        gap: 0px 0px; 
+        grid-template-areas: 
+            "logo text speech"; 
+    }
+
+    .hdSearchbarLogo{
+        width: 100%;
+        height: 100%;
+    }
+
+    .hdSearchbarLogo .logoFrame{
+        width: 100%;
+        height: 100%;
+        background-image: url("search.png");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        border-radius: 20rem;  
+
+    }
+
+    .hdSearchbar input{
+        width: 100%;
+        border: none;
+        border-radius: 20rem;
+
+
+        font-size: 20px;
+    }
+
+
+    .bgBlob{
+        width: 100%;
+        min-height: 100vh;
+        height: fit-content;
+
+        background-size:400%; /* Expand the gradient size for movement */
+        /*background: linear-gradient(to right,#a3d6da ,#a3d6da, #C7E9F5, #B7E2D5, #AEEEEE);*/
+        animation: gradientAnimation 10s ease infinite; /* Animation properties */
+
+        /*background-color: #141414;*/
+
+        /*border-top: 30px #0080C9 solid;*/
+
+
+        display: grid; 
+        grid-auto-columns: 1fr; 
+        grid-template-columns: 1fr; 
+        grid-template-rows: 10svh 1.5fr; 
+        gap: 50px 10px; 
+        grid-template-areas: 
+            "header"
+            "."; 
+
+
+        /*background: radial-gradient(ellipse at center, #1BB8BF 0%, #1bbfbf 50% ,#0080C9 100%);*/
+
+        background-image: url("bg.svg");
+    }
+
+
+
+    .mnFrame{
+        height: fit-content;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        color: white;
+        text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5), 2px 2px 20px rgba(0,47,115,0);                
+    }
+
+    .mnFrame h1{ 
+        width: 90%; text-align: center;
+        background-color: white;
+        color: #4ccfcb;
+        text-shadow: none;
+    }
+
+    .mnFrameTitle{
+        min-height: 100px;
+        height: fit-content;
+        width: 100%;
+
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        gap: 20px;
+        justify-content: center;
+        text-decoration: none;
+        margin-bottom: 10px;
+
+    }
+
+    .prHolder{
+        width: 100%;height: 75px;justify-self: center;color: white;
+        font-size: 30px;
+        text-align: center;
+        text-decoration: none;
+
+        
+        text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5), 2px 2px 20px rgba(0,47,115,0);        
+        border-radius: 5px;
+
+        /*-webkit-box-shadow: 0px 0px 26px -12px rgba(0, 0, 0, 0.425);
+        box-shadow: 0px 0px 26px -15px rgba(0, 0, 0, 0.425);*/
+    }
+
+</style>
+
+<body>
+    <div class="mnBd">
+        <div class="bgBlob">
+
+            <div class="header">
+                <div class="hdLogo">
+                    <div class="logoFrame"></div>
+                </div>
+                <div class="hdSearchbar">
+                    <div class="hdSearchbarLogo">
+                        <div class="logoFrame"></div>
+                    </div>
+                    <input type="text" name="" id="" placeholder="Search">
+                </div>
+            </div>
+
+            <div class="mnFrame">
+                <h1>Hayati</h1>
+                <div class="mnFrameTitle">
+                    <a class="prHolder">Hastalık</a>
+                    <a class="prHolder">Borç</a>
+                    <a class="prHolder">Kayıp</a>
+                    <a class="prHolder">İşsizlik</a>
+                    <a class="prHolder">Adaletsizlik</a>
+                </div>
+
+                <h1>Duygusal & Mental</h1>
+                <div class="mnFrameTitle">
+                    <a class="prHolder">Anksiyete</a>
+                    <a class="prHolder">Depresyon</a>
+                    <a class="prHolder">Yas</a>
+                    <a class="prHolder">Öfke</a>
+                    <a class="prHolder">Korku</a>
+                    <a class="prHolder">Güvensizlik</a>
+                    <a class="prHolder">Hayal Kırıklığı</a>
+                    <a class="prHolder">Sabır</a>
+
+                </div>
+
+
+                <h1>İman</h1>
+                <div class="mnFrameTitle">
+                    <a class="prHolder">İman Zayıflığı</a>
+                    <a class="prHolder">Dua Edememe</a>
+                    <a class="prHolder">Kibir</a>
+                    <a class="prHolder">Şüpheler</a>
+                </div>
+
+                <h1>İlişkiler</h1>
+                <div class="mnFrameTitle">
+                    <a class="prHolder">Eşler Arası</a>
+                    <a class="prHolder">Arkadaşlık </a>
+                    <a class="prHolder">Çocuklar</a>
+                    <a class="prHolder">Aşk</a>
+                    <a class="prHolder">Toplumsal Baskı</a>
+                </div>
+
+                <h1>Varoluşsal & Amaçsal</h1>
+                <div class="mnFrameTitle">
+                    <a class="prHolder">Amaçsızlık</a>
+                    <a class="prHolder">Hayatın Anlamı</a>
+                    <a class="prHolder">Vicdan Azabı</a>
+                    <a class="prHolder">Zaman Yönetimi</a>
+                </div>
+
+                <h1>Farklı Durumlar</h1>
+                <div class="mnFrameTitle">
+                    <a class="prHolder">Göç ve Uyum</a>
+                    <a class="prHolder">Sınav Kaygısı</a>
+                    <a class="prHolder">Mobbing</a>
+                    <a class="prHolder">Bağımlılıklar</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
